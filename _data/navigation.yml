@@ -31,3 +31,6 @@ main:
     
   # - title: "Guide"
   #   url: /markdown/
+
+  - title: "Daily arXiv"
+    url: /daily-arXiv-ai-enhanced/
