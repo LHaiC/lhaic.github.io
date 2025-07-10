@@ -9,14 +9,14 @@ redirect_from:
 
 ## Biography
 
-I am Haichuan Liu, an undergraduate student majoring in **Microelectronics Science and Engineering** at the School of Electronics Engineering and Computer Science, Peking University.
+I am Haichuan Liu, an undergraduate in **Microelectronics Science and Engineering** at Peking University's School of Electronics Engineering and Computer Science.
 
-My passion lies at the intersection of semiconductor technology, electronic design automation (EDA), and high-performance computing. I am particularly interested in applying computational intelligence to solve fundamental challenges in integrated circuit design. My primary research interests include:
+My work centers on the intersection of semiconductor technology, electronic design automation (EDA), and high-performance computing. I am driven by the challenge of applying computational intelligence to solve fundamental problems in modern integrated circuit design. My primary research interests include:
 
-*   **AI for EDA:** Applying machine learning to optimize chip design processes like placement, routing, and timing prediction.
-*   **GPU Acceleration:** Leveraging NVIDIA CUDA for high-performance parallel computing to accelerate complex EDA algorithms.
-*   **VLSI Timing Analysis:** Focusing on Static Timing Analysis (STA) and methodologies for achieving timing closure in modern digital circuits.
+*   **AI for EDA:** Applying machine learning to optimize critical chip design stages, including placement, routing, and timing prediction.
+*   **Hardware Acceleration:** Harnessing parallel computing architectures like GPUs (CUDA) and FPGAs to achieve significant speedups for complex EDA algorithms.
+*   **VLSI Timing Analysis:** Focusing on Static Timing Analysis (STA) and developing advanced methodologies for achieving timing closure in high-performance digital circuits.
 
-Please feel free to get in touch with me.
+I am always excited to discuss these topics and explore potential collaborations. Please feel free to connect with me.
 
 ---
