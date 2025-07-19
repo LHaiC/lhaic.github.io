@@ -6,12 +6,20 @@ author_profile: true
 ---
 
 {% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+<div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar
+    profile</a>.</div>
 {% endif %}
 
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
+<!-- 
+原本的Jekyll自动渲染代码 - 现已注释
+此段代码的作用：
+1. 检查是否定义了publication_category（发表物分类）
+2. 如果有分类，按分类遍历所有publications并显示分类标题
+3. 使用archive-single.html模板渲染每个publication
+4. 如果没有分类，直接按时间倒序显示所有publications
+
 {% if site.publication_category %}
   {% for category in site.publication_category  %}
     {% assign title_shown = false %}
@@ -31,6 +39,21 @@ author_profile: true
     {% include archive-single.html %}
   {% endfor %}
 {% endif %}
+-->
 
+<h2>Conference and Journal Papers</h2>
+<p>(* denotes corresponding authors)</p>
 
-
+<ul>
+  <li>
+    <strong>2025</strong>
+    <br>
+    <strong>C1. IncreGPUSTA: GPU-Accelerated Incremental Static Timing Analysis for Iterative Design Flows</strong>
+    <ul>
+      <li>accepted</li>
+      <li><strong>Haichuan Liu</strong>, Zizheng Guo, Runsheng Wang and Yibo Lin*</li>
+      <li>IEEE/ACM International Conference on Computer-Aided Design (ICCAD), Munich, Germany, Oct, 2025.</li>
+      <!-- <li>[<a href="#">PDF</a>] [<a href="#">Slides</a>]</li> -->
+    </ul>
+  </li>
+</ul>
