@@ -31,7 +31,8 @@
     </h2>
 
     {% if post.authors %}
-    <div class="archive__item-authors">{{ post.authors }}</div>
+    <div class="archive__item-authors">{{ post.authors | replace: 'Haichuan Liu', '<strong>Haichuan Liu</strong>' }}
+    </div>
     {% endif %}
 
     {% if post.read_time %}
