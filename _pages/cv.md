@@ -35,7 +35,8 @@ Education
 Skills
 ======
 * Programming languages
-  * C/C++
+  * C/C++/CUDA
+  * Rust
   * Python
   * Verilog
 * EDA tools
