@@ -23,7 +23,7 @@ I am always excited to discuss these topics and seek mutual improvement.
 
 ## Site Sections
 
-This site hosts my academic work, technical projects, and tools. Here’s a quick guide to the main sections:
+Here’s a quick guide to the main sections:
 
 *   **[Publications](/publications/)**: A list of my academic publications.
 
