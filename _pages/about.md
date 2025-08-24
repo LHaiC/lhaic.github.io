@@ -15,8 +15,20 @@ My work centers on the intersection of semiconductor technology, electronic desi
 
 *   **AI for EDA:** Applying machine learning to optimize critical chip design stages, including placement, routing, and timing prediction.
 *   **Hardware Acceleration:** Harnessing parallel computing architectures like GPUs (CUDA) and FPGAs to achieve significant speedups for complex EDA algorithms.
-*   **VLSI Timing Analysis:** Focusing on Static Timing Analysis (STA) and developing advanced methodologies for achieving timing closure in high-performance digital circuits.
+*   **VLSI Timing Analysis:** Focusing on Static TIming Analysis (STA) and developing advanced methodologies for achieving timing closure in high-performance digital circuits.
 
-I am always excited to discuss these topics and explore potential collaborations. Please feel free to connect with me.
+I am always excited to discuss these topics and seek mutual improvement.
 
 ---
+
+## Site Sections
+
+This site hosts my academic work, technical projects, and tools. Here’s a quick guide to the main sections:
+
+*   **[Publications](/publications/)**: A list of my academic publications.
+
+*   **[CV](/cv/)**: My curriculum vitae.
+
+*   **[Daily ArXiv](/daily-arXiv-ai-enhanced/)**: An AI-enhanced daily digest of arXiv papers.
+
+*   **[BP Tracker](/bp-tracker/)**: My blood pressure tracker. Feel free to keep an eye on my blood pressure.

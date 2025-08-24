@@ -32,8 +32,11 @@ main:
   # - title: "Guide"
   #   url: /markdown/
 
-  - title: "Daily arXiv"
+  - title: "Daily ArXiv"
     url: /daily-arXiv-ai-enhanced/
 
   # - title: "Dev Pronounce"
   #   url: /dev-pronounce/
+
+  - title: "BP Tracker"
+    url: /bp-tracker/
