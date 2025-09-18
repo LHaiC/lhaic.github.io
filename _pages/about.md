@@ -9,7 +9,7 @@ redirect_from:
 
 ## Biography
 
-I am Haichuan Liu, an undergraduate in **Microelectronics Science and Engineering** at Peking University's School of Electronics Engineering and Computer Science.
+I am Haichuan Liu, an undergraduate in **Microelectronics Science and Engineering** at Peking University's School of Electronics Engineering and Computer Science, advised by Prof. [Yibo Lin](https://yibolin.com/).
 
 My work centers on the intersection of semiconductor technology, electronic design automation (EDA), and high-performance computing. I am driven by the challenge of applying computational intelligence to solve fundamental problems in modern integrated circuit design. My primary research interests include:
 
