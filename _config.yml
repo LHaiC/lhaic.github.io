@@ -22,7 +22,7 @@ repository               : "lhaic/lhaic.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "gemini.png"
+  avatar           : "gemini.jpg"
   name             : "Haichuan Liu"
   pronouns         : # example: "she/her"  
   bio              : "Undergraduate student at [Peking University](https://english.pku.edu.cn/)"
@@ -138,7 +138,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 :  "gemini.png"
+og_image                 :  "gemini.jpg"
 og_description           :  "Haichuan Liu's personal academic website."
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
