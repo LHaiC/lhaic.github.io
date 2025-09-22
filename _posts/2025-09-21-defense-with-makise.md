@@ -9,4 +9,4 @@ tags:
 
 I attended the defense with Kurisu Makise.
 
-![Kurisu Makise](defense_with_makise.jpg)
+![Kurisu Makise](/images/defense_with_makise.jpg)
