@@ -28,7 +28,3 @@ Here’s a quick guide to the main sections:
 *   **[Publications](/publications/)**: A list of my academic publications.
 
 *   **[CV](/cv/)**: My curriculum vitae.
-
-*   **[Daily ArXiv](/daily-arXiv-ai-enhanced/)**: An AI-enhanced daily digest of arXiv papers.
-
-*   **[BP Tracker](/bp-tracker/)**: My blood pressure tracker. Feel free to keep an eye on my blood pressure.
