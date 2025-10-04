@@ -16,7 +16,8 @@ My work centers on the intersection of semiconductor technology, electronic desi
 *   **Hardware Acceleration:** Harnessing parallel computing architectures like GPUs (CUDA) and FPGAs to achieve significant speedups for complex EDA algorithms.
 *   **VLSI Timing Analysis:** Focusing on Static TIming Analysis (STA) and developing advanced methodologies for achieving timing closure in deep sub-micro designs.
 
-I am always excited to discuss these topics and seek mutual improvement.
+<!-- I am always excited to discuss these topics and seek mutual improvement. -->
+My Chinese name is 刘海川.
 
 ---
 
