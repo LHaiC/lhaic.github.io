@@ -11,10 +11,10 @@ redirect_from:
 
 I am Haichuan Liu, an undergraduate in **Microelectronics Science and Engineering** at Peking University's School of Electronics Engineering and Computer Science, advised by Prof. [Yibo Lin](https://yibolin.com/).
 
-My work centers on the intersection of semiconductor technology, electronic design automation (EDA), and high-performance computing. I am driven by the challenge of applying computational intelligence to solve fundamental problems in modern integrated circuit design. My primary research interests include:
+My work centers on the intersection of semiconductor technology, electronic design automation (EDA), and high-performance computing. My primary research interests include:
 
 *   **Hardware Acceleration:** Harnessing parallel computing architectures like GPUs (CUDA) and FPGAs to achieve significant speedups for complex EDA algorithms.
-*   **VLSI Timing Analysis:** Focusing on Static TIming Analysis (STA) and developing advanced methodologies for achieving timing closure in deep sub-micro designs.
+*   **VLSI Timing Analysis:** Focusing on Static TIming Analysis (STA) and developing advanced methodologies for achieving timing closure in advanced-node designs.
 
 <!-- I am always excited to discuss these topics and seek mutual improvement. -->
 My Chinese name is 刘海川.
