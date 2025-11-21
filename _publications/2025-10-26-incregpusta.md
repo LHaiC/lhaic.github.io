@@ -3,7 +3,7 @@ title: "IncreGPUSTA: GPU-Accelerated Incremental Static Timing Analysis for Iter
 collection: publications
 category: conferences
 permalink: /publication/2025-10-26-incregpusta
-# excerpt: 'This paper is about a famous math equation, $$E=mc^2$$'
+excerpt: ''
 date: 2025-10-26
 venue: 'IEEE/ACM International Conference on Computer-Aided Design (ICCAD), Munich, Germany, Oct, 2025.'
 authors: "Haichuan Liu<sup>#</sup>, Zizheng Guo<sup>#</sup>, Runsheng Wang and Yibo Lin<sup>*</sup>"

@@ -3,7 +3,7 @@ title: "HeteroSTA: A CPU-GPU Heterogeneous Static Timing Analysis Engine with Ho
 collection: publications
 category: conferences
 permalink: /publication/2026-01-19-heterosta
-# excerpt: 'This paper is about a famous math equation, $$E=mc^2$$'
+excerpt: ''
 date: 2026-01-19
 venue: 'IEEE/ACM Asia and South Pacific Design Automation Conference (ASPDAC), Hong Kong, Jan, 2026.'
 authors: "Zizheng Guo, Haichuan Liu, Xizhe Shi, Shenglu Hua, Zuodong Zhang, Chunyuan Zhao, Runsheng Wang and Yibo Lin<sup>*</sup>"
