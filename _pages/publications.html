@@ -11,7 +11,12 @@ author_profile: true
 
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
+<div style="margin-bottom: 20px; font-size: 0.9em; color: #666; background-color: #f9f9f9; padding: 10px; border-left: 4px solid #ccc;">
+  <b>Note:</b> <br>
+  # Equal contribution <br>
+  * Corresponding author
+</div>
+
 {% if site.publication_category %}
   {% for category in site.publication_category %}
     {% assign title_shown = false %}

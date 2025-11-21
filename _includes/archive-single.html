@@ -31,7 +31,8 @@
     </h2>
 
     {% if post.authors %}
-    <div class="archive__item-authors">{{ post.authors | replace: 'Haichuan Liu', '<strong>Haichuan Liu</strong>' }}
+    <div class="archive__item-authors">
+      {{ post.authors | replace: 'Haichuan Liu', '<strong>Haichuan Liu</strong>' | markdownify | remove: '<p>' | remove: '</p>' }}
     </div>
     {% endif %}
 
