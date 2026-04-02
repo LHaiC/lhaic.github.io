@@ -16,6 +16,8 @@ My work centers on the intersection of semiconductor technology, Electronic Desi
 *   **Hardware Acceleration:** Leveraging CPU-GPU heterogeneous computing architectures to accelerate various EDA flows.
 *   **VLSI Timing Analysis:** Developing Static Timing Analysis (STA) methodologies to achieve timing closure in advanced nodes.
 
+Lately I have been reading [The Art of HPC](https://theartofhpc.com/) textbooks by Victor Eijkhout of TACC—highly recommended for anyone interested in scientific computing.
+
 ---
 
 ## News
@@ -29,6 +31,6 @@ My work centers on the intersection of semiconductor technology, Electronic Desi
 
 Here’s a quick guide to the main sections of my website:
 
-*   **[News & Posts](/year-archive/)**: Recent news, updates, and blog entries.
+*   **[News & Awards](/year-archive/)**: Recent news, updates, and awards.
 *   **[Publications](/publications/)**: A list of my academic publications.
 *   **[CV](/cv/)**: My curriculum vitae.
