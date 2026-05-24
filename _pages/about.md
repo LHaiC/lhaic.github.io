@@ -70,23 +70,6 @@ My work centers on the intersection of semiconductor technology, Electronic Desi
 
 Lately I have been reading [The Art of HPC](https://theartofhpc.com/) textbooks by Victor Eijkhout of TACC—highly recommended for anyone interested in scientific computing.
 
-## Selected Publications
-
-<div class="home-publications">
-{% assign selected_publications = site.publications | sort: "date" | reverse %}
-{% for post in selected_publications limit:3 %}
-  <article class="mini-publication">
-    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-    {% if post.authors %}<p class="mini-publication__authors">{% include linked-authors.html authors=post.authors %}</p>{% endif %}
-    {% if post.venue %}<p class="mini-publication__venue">{{ post.venue }}</p>{% endif %}
-    <div class="publication-card__links publication-card__links--compact">
-      <a href="{{ post.url }}">Details</a>
-      {% if post.paperurl %}<a href="{{ post.paperurl }}">Paper</a>{% endif %}
-    </div>
-  </article>
-{% endfor %}
-</div>
-
 ## Recent News
 
 <div class="news-list">
