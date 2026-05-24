@@ -16,11 +16,11 @@ let determineComputedTheme = () => {
   if (themeSetting != "system") {
     return themeSetting;
   }
-  return (userPref && userPref("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+  return (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
 };
 
 // detect OS/browser preference
-const browserPref = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+const browserPref = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
 
 // Set the theme on page load or when explicitly called
 let setTheme = (theme) => {
@@ -51,8 +51,8 @@ var toggleTheme = () => {
    Plotly integration script so that Markdown codeblocks will be rendered
    ========================================================================== */
 
-// Read the Plotly data from the code block, hide it, and render the chart as new node. This allows for the 
-// JSON data to be retrieve when the theme is switched. The listener should only be added if the data is 
+// Read the Plotly data from the code block, hide it, and render the chart as new node. This allows for the
+// JSON data to be retrieve when the theme is switched. The listener should only be added if the data is
 // actually present on the page.
 import { plotlyDarkLayout, plotlyLightLayout } from './theme.js';
 let plotlyElements = document.querySelectorAll("pre>code.language-plotly");
@@ -86,18 +86,25 @@ if (plotlyElements.length > 0) {
    ========================================================================== */
 
 $(document).ready(function () {
-  // SCSS SETTINGS - These should be the same as the settings in the relevant files 
+  // SCSS SETTINGS - These should be the same as the settings in the relevant files
   const scssLarge = 925;          // pixels, from /_sass/_themes.scss
   const scssMastheadHeight = 70;  // pixels, from the current theme (e.g., /_sass/theme/_default.scss)
 
   // If the user hasn't chosen a theme, follow the OS preference
   setTheme();
-  window.matchMedia('(prefers-color-scheme: dark)')
-        .addEventListener("change", (e) => {
-          if (!localStorage.getItem("theme")) {
-            setTheme(e.matches ? "dark" : "light");
-          }
-        });
+  if (window.matchMedia) {
+    const colorSchemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleColorSchemeChange = (e) => {
+      if (!localStorage.getItem("theme")) {
+        setTheme(e.matches ? "dark" : "light");
+      }
+    };
+    if (colorSchemeQuery.addEventListener) {
+      colorSchemeQuery.addEventListener("change", handleColorSchemeChange);
+    } else if (colorSchemeQuery.addListener) {
+      colorSchemeQuery.addListener(handleColorSchemeChange);
+    }
+  }
 
   // Enable the theme toggle
   $('#theme-toggle').on('click', toggleTheme);

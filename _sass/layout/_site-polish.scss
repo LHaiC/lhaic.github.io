@@ -402,6 +402,28 @@ body::before {
   color: var(--global-link-color);
 }
 
+.author__urls-wrapper {
+  z-index: 30;
+}
+
+.author__urls,
+.greedy-nav .hidden-links {
+  z-index: 100;
+  background: var(--global-bg-color);
+}
+
+.author__urls::after,
+.greedy-nav .hidden-links::after {
+  border-color: var(--global-bg-color) transparent;
+}
+
+@media (max-width: 57.8124em) {
+  .sidebar {
+    position: relative;
+    z-index: 90;
+  }
+}
+
 .page__footer {
   position: relative;
   bottom: auto;

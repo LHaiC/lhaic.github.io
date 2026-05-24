@@ -14,11 +14,27 @@ var $hlinks = $('#site-nav .hidden-links');
 var breaks = [];
 
 function updateNav() {
+  var mobileNav = window.matchMedia && window.matchMedia("(max-width: 925px)").matches;
+
+  if (mobileNav) {
+    while ($vlinks.children("*:not(.persist)").length > 0) {
+      $vlinks.children("*:not(.persist)").last().prependTo($hlinks);
+    }
+    breaks = [];
+    $btn.removeClass("hidden");
+    $btn.attr("count", $hlinks.children().length);
+  } else if (breaks.length < 1 && $hlinks.children().length > 0) {
+    if ($vlinks_persist_tail.length > 0) {
+      $hlinks.children().insertBefore($vlinks_persist_tail);
+    } else {
+      $hlinks.children().appendTo($vlinks);
+    }
+  }
 
   var availableSpace = $btn.hasClass('hidden') ? $nav.width() : $nav.width() - $btn.width() - 30;
 
   // The visible list is overflowing the nav
-  if ($vlinks.width() > availableSpace) {
+  if (!mobileNav && $vlinks.width() > availableSpace) {
 
     while ($vlinks.width() > availableSpace && $vlinks.children("*:not(.persist)").length > 0) {
       // Record the width of the list
@@ -34,7 +50,7 @@ function updateNav() {
     }
 
     // The visible list is not overflowing
-  } else {
+  } else if (!mobileNav) {
 
     // There is space for another item in the nav
     while (breaks.length > 0 && availableSpace > breaks[breaks.length - 1]) {
@@ -56,7 +72,7 @@ function updateNav() {
   }
 
   // Keep counter updated
-  $btn.attr("count", breaks.length);
+  $btn.attr("count", mobileNav ? $hlinks.children().length : breaks.length);
 
   // update masthead height and the body/sidebar top padding
   var mastheadHeight = $('.masthead').height();
@@ -74,9 +90,15 @@ function updateNav() {
 $(window).on('resize', function () {
   updateNav();
 });
-screen.orientation.addEventListener("change", function () {
-  updateNav();
-});
+if (window.screen && window.screen.orientation && window.screen.orientation.addEventListener) {
+  window.screen.orientation.addEventListener("change", function () {
+    updateNav();
+  });
+} else {
+  $(window).on('orientationchange', function () {
+    updateNav();
+  });
+}
 
 $btn.on('click', function () {
   $hlinks.toggleClass('hidden');
