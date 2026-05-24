@@ -5,6 +5,8 @@ author_profile: true
 redirect_from: 
   - /md/
   - /markdown.html
+sitemap: false
+published: false
 ---
 
 {% include toc %}

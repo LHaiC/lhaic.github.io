@@ -25,7 +25,7 @@
 
 ## 已临时屏蔽的模板页面和目录
 
-这些内容目前没有删除，只是在 `_config.yml` 中通过 `exclude` 或 `collections.output: false` 阻止 Jekyll 输出：
+这些内容目前没有删除，只是在 `_config.yml` 中通过 `exclude` 或 `collections.output: false` 阻止 Jekyll 输出，并在各自 front matter 中标记 `sitemap: false` / `published: false`，避免人工 sitemap 或 `jekyll-sitemap` 再收录死链：
 
 页面：
 
@@ -57,9 +57,10 @@
 如果以后需要恢复某个页面：
 
 1. 从 `_config.yml` 的 `exclude` 列表中删除对应路径。
-2. 如果恢复的是 `talks`、`teaching` 或 `portfolio` 集合，把 `_config.yml` 中对应 collection 的 `output` 改回 `true`。
-3. 如果希望页面出现在顶部导航，更新 `_data/navigation.yml`。
-4. 运行 `bundle exec jekyll build` 验证输出。
+2. 从对应文件 front matter 中删除 `sitemap: false` 和 `published: false`。
+3. 如果恢复的是 `talks`、`teaching` 或 `portfolio` 集合，把 `_config.yml` 中对应 collection 的 `output` 改回 `true`。
+4. 如果希望页面出现在顶部导航，更新 `_data/navigation.yml`。
+5. 运行 `bundle exec jekyll build` 验证输出。
 
 例如恢复 Talks：
 

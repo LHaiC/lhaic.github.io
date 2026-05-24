@@ -9,58 +9,48 @@ redirect_from:
 
 {% include base_path %}
 
-Education
-======
-<!-- * Ph.D in Version Control Theory, GitHub University, 2018 (expected) -->
-<!-- * M.S. in Jekyll, GitHub University, 2014 -->
-* B.S. in Microelectronics Science and Engineering, Peking University, 2026 (expected)
+<div class="cv-summary">
+  <p>Undergraduate researcher at Peking University working on GPU-accelerated EDA, static timing analysis, and timing-driven optimization.</p>
+</div>
 
-<!-- Work experience
-======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+<section class="resume-section">
+  <h2>Education</h2>
+  <div class="resume-item">
+    <div>
+      <strong>B.S. in Microelectronics Science and Engineering</strong>
+      <span>Peking University</span>
+    </div>
+    <time>Expected 2026</time>
+  </div>
+</section>
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+<section class="resume-section">
+  <h2>Skills</h2>
+  <div class="skill-grid">
+    <div>
+      <h3>Programming</h3>
+      <p>C/C++/CUDA · Rust · Python · Verilog</p>
+    </div>
+    <div>
+      <h3>EDA Tools</h3>
+      <p>Cadence Virtuoso · Synopsys PrimeTime</p>
+    </div>
+    <div>
+      <h3>Research Areas</h3>
+      <p>GPU acceleration · Static timing analysis · Timing-driven optimization</p>
+    </div>
+  </div>
+</section>
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git -->
-  
-Skills
-======
-* Programming languages
-  * C/C++/CUDA
-  * Rust
-  * Python
-  * Verilog
-* EDA tools
-  * Cadence Virtuoso
-  * Synopsys PrimeTime
-
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-<!-- Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul> -->
-  
-<!-- Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul> -->
-  
-<!-- Service and leadership
-======
-* Currently signed in to 43 different slack teams -->
+<section class="resume-section">
+  <h2>Publications</h2>
+  <div class="cv-publications">
+  {% for post in site.publications reversed %}
+    <article class="cv-publication">
+      <h3><a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a></h3>
+      {% if post.authors %}<p>{{ post.authors | replace: 'Haichuan Liu', '<strong>Haichuan Liu</strong>' | markdownify | remove: '<p>' | remove: '</p>' }}</p>{% endif %}
+      {% if post.venue %}<span>{{ post.venue }}</span>{% endif %}
+    </article>
+  {% endfor %}
+  </div>
+</section>

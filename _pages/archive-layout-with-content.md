@@ -2,6 +2,8 @@
 title: "Archive Layout with Content"
 layout: archive
 permalink: /archive-layout-with-content/
+sitemap: false
+published: false
 ---
 
 A variety of common markup showing how the theme styles them.
