@@ -186,6 +186,26 @@ exclude:
   - package.json*
   - Rakefile
   - README
+  # Unused Academic Pages template surfaces kept in the repo but hidden from output.
+  - _pages/archive-layout-with-content.md
+  - _pages/category-archive.html
+  - _pages/collection-archive.html
+  - _pages/cv-json.md
+  - _pages/markdown.md
+  - _pages/non-menu-page.md
+  - _pages/page-archive.html
+  - _pages/portfolio.html
+  - _pages/tag-archive.html
+  - _pages/talkmap.html
+  - _pages/talks.html
+  - _pages/teaching.html
+  - _pages/terms.md
+  - _portfolio/
+  - _talks/
+  - _teaching/
+  - markdown_generator/
+  - scripts/
+  - talkmap/
   - tmp
   - vendor
 keep_files:
@@ -218,16 +238,16 @@ kramdown:
 # These settings control the types of collections used by the template
 collections:
   teaching:
-    output: true
+    output: false
     permalink: /:collection/:path/
   publications:
     output: true
     permalink: /:collection/:path/
   portfolio:
-    output: true
+    output: false
     permalink: /:collection/:path/
   talks:
-    output: true
+    output: false
     permalink: /:collection/:path/
 
 
