@@ -33,13 +33,11 @@ author_profile: true
         {% assign current_year = post_year %}
       {% endif %}
       <article class="publication-card">
-        <p class="publication-card__venue">{{ post.venue }}</p>
         <h3 class="publication-card__title"><a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a></h3>
         {% if post.authors %}
-          <p class="publication-card__authors">{{ post.authors | replace: 'Haichuan Liu', '<strong>Haichuan Liu</strong>' | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+          <p class="publication-card__authors">{% include linked-authors.html authors=post.authors %}</p>
         {% endif %}
-        {% assign summary = post.content | markdownify | strip_html | strip_newlines | truncatewords: 52 %}
-        {% if summary != "" %}<p class="publication-card__summary">{{ summary }}</p>{% endif %}
+        {% if post.venue %}<p class="publication-card__venue">{{ post.venue }}</p>{% endif %}
         <div class="publication-card__links">
           <a href="{{ base_path }}{{ post.url }}">Details</a>
           {% if post.paperurl %}<a href="{{ post.paperurl }}">Paper</a>{% endif %}
@@ -58,11 +56,9 @@ author_profile: true
       {% assign current_year = post_year %}
     {% endif %}
     <article class="publication-card">
-      <p class="publication-card__venue">{{ post.venue }}</p>
       <h3 class="publication-card__title"><a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a></h3>
-      {% if post.authors %}<p class="publication-card__authors">{{ post.authors | replace: 'Haichuan Liu', '<strong>Haichuan Liu</strong>' | markdownify | remove: '<p>' | remove: '</p>' }}</p>{% endif %}
-      {% assign summary = post.content | markdownify | strip_html | strip_newlines | truncatewords: 52 %}
-      {% if summary != "" %}<p class="publication-card__summary">{{ summary }}</p>{% endif %}
+      {% if post.authors %}<p class="publication-card__authors">{% include linked-authors.html authors=post.authors %}</p>{% endif %}
+      {% if post.venue %}<p class="publication-card__venue">{{ post.venue }}</p>{% endif %}
       <div class="publication-card__links">
         <a href="{{ base_path }}{{ post.url }}">Details</a>
         {% if post.paperurl %}<a href="{{ post.paperurl }}">Paper</a>{% endif %}

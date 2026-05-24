@@ -12,6 +12,16 @@
   --site-card: rgba(255, 255, 255, 0.78);
   --site-line: #e5dacc;
   --site-shadow: 0 16px 42px rgba(74, 47, 31, 0.08);
+  --site-card-shadow: 0 10px 28px rgba(74, 47, 31, 0.045);
+  --site-underline: rgba(143, 29, 44, 0.35);
+  --site-underline-hover: rgba(143, 29, 44, 0.58);
+  --site-hero-bg: rgba(255, 255, 255, 0.62);
+  --site-intro-bg: rgba(255, 255, 255, 0.55);
+  --site-nav-bg: rgba(251, 250, 246, 0.9);
+  --site-page-wash:
+    radial-gradient(circle at 18% 8%, rgba(143, 29, 44, 0.09), transparent 28rem),
+    radial-gradient(circle at 82% 20%, rgba(191, 137, 82, 0.12), transparent 24rem),
+    linear-gradient(180deg, rgba(255,255,255,0.68), rgba(255,255,255,0));
 }
 
 html:not([data-theme="dark"]) {
@@ -28,7 +38,29 @@ html:not([data-theme="dark"]) {
   --global-masthead-link-color-hover: var(--site-accent);
 }
 
+
+html[data-theme="dark"] {
+  --site-paper: var(--global-bg-color);
+  --site-paper-soft: var(--global-footer-bg-color);
+  --site-ink: var(--global-text-color);
+  --site-muted: var(--global-text-color-light);
+  --site-accent: var(--global-link-color);
+  --site-accent-dark: var(--global-link-color);
+  --site-card: rgba(255, 255, 255, 0.055);
+  --site-line: rgba(255, 255, 255, 0.28);
+  --site-shadow: none;
+  --site-card-shadow: none;
+  --site-underline: rgba(14, 161, 197, 0.42);
+  --site-underline-hover: rgba(14, 161, 197, 0.72);
+  --site-hero-bg: rgba(255, 255, 255, 0.045);
+  --site-intro-bg: rgba(255, 255, 255, 0.045);
+  --site-nav-bg: rgba(71, 71, 71, 0.92);
+  --site-page-wash: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0));
+}
+
 body {
+  min-height: 100vh;
+  padding-bottom: 0;
   letter-spacing: -0.005em;
 }
 
@@ -38,14 +70,11 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: -1;
-  background:
-    radial-gradient(circle at 18% 8%, rgba(143, 29, 44, 0.09), transparent 28rem),
-    radial-gradient(circle at 82% 20%, rgba(191, 137, 82, 0.12), transparent 24rem),
-    linear-gradient(180deg, rgba(255,255,255,0.68), rgba(255,255,255,0));
+  background: var(--site-page-wash);
 }
 
 .masthead {
-  background: rgba(251, 250, 246, 0.9);
+  background: var(--site-nav-bg);
   backdrop-filter: blur(14px);
 }
 
@@ -58,45 +87,52 @@ body::before {
   letter-spacing: -0.035em;
 }
 
+.page {
+  @include breakpoint($large) {
+    @include span(10 of 12 last);
+    @include prefix(0.5 of 12);
+    @include suffix(0);
+  }
+}
+
 .page__content h2,
 .resume-section h2,
 .publication-section-title {
-  border-bottom: 1px solid var(--site-line);
-  color: var(--site-ink);
+  border-bottom: 1px solid var(--global-border-color);
+  color: var(--global-text-color);
   letter-spacing: -0.02em;
 }
 
 .page__content a,
 .archive a {
-  text-decoration-color: rgba(143, 29, 44, 0.35);
+  text-decoration-color: var(--site-underline);
   text-underline-offset: 0.16em;
+}
+
+.page__content a:hover,
+.archive a:hover {
+  text-decoration-color: var(--site-underline-hover);
 }
 
 .home-hero {
   position: relative;
-  margin: 0 0 2.4rem;
-  padding: 2.1rem;
+  margin: 0 0 2rem;
+  padding: 1.45rem 1.6rem;
   overflow: hidden;
-  border: 1px solid var(--site-line);
-  border-radius: 20px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.92), rgba(248,242,234,0.78));
-  box-shadow: var(--site-shadow);
+  border: 1px solid var(--global-border-color);
+  border-left: 4px solid var(--global-link-color);
+  border-radius: 14px;
+  background: var(--site-hero-bg);
+  box-shadow: var(--site-card-shadow);
 }
 
 .home-hero::after {
-  content: "";
-  position: absolute;
-  top: -30%;
-  right: -18%;
-  width: 20rem;
-  height: 20rem;
-  border: 1px solid rgba(143, 29, 44, 0.16);
-  border-radius: 50%;
+  display: none;
 }
 
 .eyebrow {
   margin-bottom: 0.8rem;
-  color: var(--site-accent);
+  color: var(--global-link-color);
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -106,19 +142,19 @@ body::before {
 .home-hero h1 {
   position: relative;
   margin: 0;
-  max-width: 12ch;
-  font-size: clamp(2.35rem, 6vw, 4.9rem);
-  line-height: 0.95;
-  letter-spacing: -0.06em;
+  max-width: none;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
   z-index: 1;
 }
 
 .home-hero h1 span {
-  display: block;
+  display: inline-block;
   color: var(--site-muted);
-  font-size: 0.38em;
-  letter-spacing: 0.08em;
-  margin-top: 0.55rem;
+  font-size: 0.5em;
+  letter-spacing: 0.02em;
+  margin-left: 0.45rem;
 }
 
 .home-hero__lead {
@@ -160,18 +196,22 @@ body::before {
 .publication-card,
 .resume-section,
 .cv-summary {
-  border: 1px solid var(--site-line);
+  border: 1px solid var(--global-border-color);
   border-radius: 16px;
   background: var(--site-card);
-  box-shadow: 0 10px 28px rgba(74, 47, 31, 0.045);
+  box-shadow: var(--site-card-shadow);
 }
 
 .focus-card {
-  padding: 1rem;
+  display: flex;
+  min-height: 5.2rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.15rem;
+  text-align: center;
 }
 
 .focus-card span,
-.publication-year,
 .publication-card__venue,
 .mini-publication__venue,
 .news-item time,
@@ -184,15 +224,19 @@ body::before {
 }
 
 .focus-card h2 {
-  margin: 0.65rem 0 0.45rem;
+  margin: 0;
   padding: 0;
   border: 0;
-  font-size: 1rem;
+  color: var(--global-link-color);
+  font-size: clamp(1.08rem, 1.6vw, 1.18rem);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.28;
 }
 
 .focus-card p,
 .mini-publication__authors,
-.publication-card__summary,
+.publication-card__venue,
 .cv-summary p {
   color: var(--site-muted);
 }
@@ -215,7 +259,7 @@ body::before {
 }
 
 .news-list {
-  border-top: 1px solid var(--site-line);
+  border-top: 1px solid var(--global-border-color);
 }
 
 .news-item {
@@ -223,14 +267,14 @@ body::before {
   grid-template-columns: 7.5rem 1fr;
   gap: 1rem;
   padding: 0.85rem 0;
-  border-bottom: 1px solid var(--site-line);
+  border-bottom: 1px solid var(--global-border-color);
 }
 
 .publications-intro {
   margin-bottom: 2rem;
   padding: 1.25rem 1.4rem;
-  border-left: 4px solid var(--site-accent);
-  background: rgba(255, 255, 255, 0.55);
+  border-left: 4px solid var(--global-link-color);
+  background: var(--site-intro-bg);
 }
 
 .publications-intro p:last-child {
@@ -249,7 +293,12 @@ body::before {
 }
 
 .publication-year {
-  margin: 1.4rem 0 0.65rem;
+  margin: 1.7rem 0 0.75rem;
+  color: var(--global-link-color);
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
 }
 
 .publication-card {
@@ -260,28 +309,42 @@ body::before {
 
 .publication-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(143, 29, 44, 0.28);
+  border-color: var(--site-underline-hover);
   box-shadow: var(--site-shadow);
 }
 
 .publication-card__authors {
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.45rem;
+}
+
+.publication-card__venue,
+.mini-publication__venue {
+  margin: 0 0 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.45;
+  text-transform: none;
 }
 
 .publication-card__links a {
   display: inline-flex;
   align-items: center;
   padding: 0.34rem 0.72rem;
-  border: 1px solid rgba(143, 29, 44, 0.24);
-  color: var(--site-accent-dark);
+  border: 1px solid var(--site-underline);
+  color: var(--global-link-color);
   font-size: 0.8rem;
   font-weight: 700;
   text-decoration: none;
 }
 
 .publication-card__links a:first-child {
-  border-color: var(--site-accent);
+  border-color: var(--global-link-color);
   color: #fff;
+}
+
+.publication-card__links--compact {
+  margin-top: 0.8rem;
 }
 
 .cv-summary,
@@ -314,12 +377,12 @@ body::before {
 
 .skill-grid h3 {
   margin-top: 0;
-  color: var(--site-accent-dark);
+  color: var(--global-link-color);
 }
 
 .cv-publication {
   padding: 0.95rem 0;
-  border-bottom: 1px solid var(--site-line);
+  border-bottom: 1px solid var(--global-border-color);
 }
 
 .cv-publication:last-child {
@@ -327,8 +390,8 @@ body::before {
 }
 
 .sidebar .author__avatar img {
-  border: 1px solid rgba(143, 29, 44, 0.18);
-  box-shadow: 0 12px 28px rgba(74, 47, 31, 0.10);
+  border: 1px solid var(--global-border-color);
+  box-shadow: var(--site-card-shadow);
 }
 
 .sidebar .author__name {
@@ -336,11 +399,14 @@ body::before {
 }
 
 .author__urls a:hover {
-  color: var(--site-accent);
+  color: var(--global-link-color);
 }
 
 .page__footer {
-  border-top-color: var(--site-line);
+  position: relative;
+  bottom: auto;
+  margin-top: 3rem;
+  border-top-color: var(--global-border-color);
 }
 
 .page__footer-copyright {

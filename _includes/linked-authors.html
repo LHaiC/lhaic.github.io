@@ -1,0 +1,9 @@
+{% assign rendered_authors = include.authors %}
+{% for author_entry in site.data.authors %}
+  {% assign author = author_entry[1] %}
+  {% if author.name and author.uri %}
+    {% capture linked_author %}<a href="{{ author.uri }}">{{ author.name }}</a>{% endcapture %}
+    {% assign rendered_authors = rendered_authors | replace: author.name, linked_author %}
+  {% endif %}
+{% endfor %}
+{{ rendered_authors | replace: 'Haichuan Liu', '<strong>Haichuan Liu</strong>' | markdownify | remove: '<p>' | remove: '</p>' }}

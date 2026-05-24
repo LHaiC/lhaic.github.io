@@ -32,7 +32,7 @@
 
     {% if post.authors %}
     <div class="archive__item-authors">
-      {{ post.authors | replace: 'Haichuan Liu', '<strong>Haichuan Liu</strong>' | markdownify | remove: '<p>' | remove: '</p>' }}
+      {% include linked-authors.html authors=post.authors %}
     </div>
     {% endif %}
 

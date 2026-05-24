@@ -48,7 +48,7 @@ redirect_from:
   {% for post in site.publications reversed %}
     <article class="cv-publication">
       <h3><a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a></h3>
-      {% if post.authors %}<p>{{ post.authors | replace: 'Haichuan Liu', '<strong>Haichuan Liu</strong>' | markdownify | remove: '<p>' | remove: '</p>' }}</p>{% endif %}
+      {% if post.authors %}<p>{% include linked-authors.html authors=post.authors %}</p>{% endif %}
       {% if post.venue %}<span>{{ post.venue }}</span>{% endif %}
     </article>
   {% endfor %}
