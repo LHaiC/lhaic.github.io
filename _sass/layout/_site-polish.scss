@@ -777,33 +777,5 @@ body::before {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .home-hero__circuit path,
-  .home-hero__circuit circle,
-  .home-atmosphere__orb,
-  .home-hero::after {
-    animation: none;
-  }
-
-  .home-hero,
-  .home-hero__circuit,
-  .home-atmosphere,
-  .home-network,
-  .focus-card {
-    transition: none;
-  }
-
-  .home-network {
-    display: none;
-  }
-
-  body::before {
-    animation: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .home-atmosphere {
-    opacity: 0.28;
-  }
-}
+// Keep the homepage motion visible by default across browser accessibility
+// preferences; small-screen fallbacks above still keep the layout lightweight.

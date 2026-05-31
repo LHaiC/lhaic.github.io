@@ -89,11 +89,6 @@ let initHomeGlassMotion = () => {
     return;
   }
 
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reducedMotion) {
-    return;
-  }
-
   const surfaces = document.querySelectorAll(".home-hero, .focus-card");
   let frame = null;
   let activeSurface = hero;
