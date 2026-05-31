@@ -62,19 +62,21 @@
   font-size: $type-size-7;
 }
 
-.footer-counter {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--global-border-color);
+.footer-meta {
+  margin: 0 0 0.75rem;
   color: var(--global-text-color-light);
   font-family: $sans-serif-narrow;
   font-size: $type-size-7;
   letter-spacing: 0.04em;
-  text-align: center;
   text-transform: uppercase;
 }
 
-.footer-counter__value {
+.footer-meta__separator {
+  margin: 0 0.35rem;
+  opacity: 0.55;
+}
+
+.footer-meta__value {
   font-weight: bold;
 }
 

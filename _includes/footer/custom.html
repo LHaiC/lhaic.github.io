@@ -1,6 +1,16 @@
 <!-- start custom footer snippets -->
 
-<a href="/sitemap/">Sitemap</a>
+<p class="footer-meta">
+  <a href="/sitemap/">Sitemap</a>
+{% assign goatcounter_code = site.goatcounter.code | default: "" %}
+{% if goatcounter_code != "" %}
+  <span id="goatcounter-footer" hidden>
+    <span class="footer-meta__separator" aria-hidden="true">·</span>
+    <span class="footer-meta__label">Total visits</span>
+    <span id="goatcounter-total" class="footer-meta__value" aria-live="polite"></span>
+  </span>
+{% endif %}
+</p>
 
 <!-- Support for MatJax -->
 <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -16,13 +26,7 @@
     await mermaid.run({querySelector:'code.language-mermaid'});
 </script>
 
-{% assign goatcounter_code = site.goatcounter.code | default: "" %}
 {% if goatcounter_code != "" %}
-<!-- GoatCounter analytics and public total visitor count -->
-<div id="goatcounter-footer" class="footer-counter" hidden>
-  <span class="footer-counter__label">Total visits</span>
-  <span id="goatcounter-total" class="footer-counter__value" aria-live="polite"></span>
-</div>
 <script>
   (function () {
     var footerCounter = document.getElementById("goatcounter-footer");
