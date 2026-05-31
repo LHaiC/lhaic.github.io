@@ -1,3 +1,4 @@
-<script type="module" src="{{ base_path }}/assets/js/main.min.js"></script>
+{% assign asset_version = site.asset_version | default: site.github.build_revision | default: site.time %}
+<script type="module" src="{{ base_path }}/assets/js/main.min.js?v={{ asset_version | uri_escape }}"></script>
 
 {% include analytics.html %}
