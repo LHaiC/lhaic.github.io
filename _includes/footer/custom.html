@@ -16,9 +16,44 @@
     await mermaid.run({querySelector:'code.language-mermaid'});
 </script>
 
-<!-- ClustrMaps Widget -->
-<div style="text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #e8e8e8;">
-  <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=m&d=GV9ZGrEGn3MMfvOPLEx4NQytSGyrspDHCtX6M0Qeyoc'></script>
+{% assign goatcounter_code = site.goatcounter.code | default: "" %}
+{% if goatcounter_code != "" %}
+<!-- GoatCounter analytics and public total visitor count -->
+<div id="goatcounter-footer" class="footer-counter" hidden>
+  <span class="footer-counter__label">Total visits</span>
+  <span id="goatcounter-total" class="footer-counter__value" aria-live="polite"></span>
 </div>
+<script>
+  (function () {
+    var footerCounter = document.getElementById("goatcounter-footer");
+    var totalCounter = document.getElementById("goatcounter-total");
+    var url = "https://{{ goatcounter_code }}.goatcounter.com/counter/TOTAL.json";
+
+    if (!footerCounter || !totalCounter || !window.fetch) {
+      return;
+    }
+
+    fetch(url, { credentials: "omit" })
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error("GoatCounter total unavailable");
+        }
+        return response.json();
+      })
+      .then(function (data) {
+        if (!data || !data.count) {
+          return;
+        }
+        totalCounter.textContent = data.count;
+        footerCounter.hidden = false;
+      })
+      .catch(function () {
+        footerCounter.hidden = true;
+      });
+  }());
+</script>
+<script data-goatcounter="https://{{ goatcounter_code }}.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+{% endif %}
 
 <!-- end custom footer snippets -->

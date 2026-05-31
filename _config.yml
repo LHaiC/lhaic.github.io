@@ -155,6 +155,9 @@ analytics:
   google:
     tracking_id          : G-6VFLCJTJ3J
 
+goatcounter:
+  code                   : haichuanliu
+
 
 # Reading Files
 include:
