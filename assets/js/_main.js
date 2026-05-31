@@ -90,8 +90,7 @@ let initHomeGlassMotion = () => {
   }
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const coarsePointer = window.matchMedia("(hover: none), (pointer: coarse)").matches;
-  if (reducedMotion || coarsePointer) {
+  if (reducedMotion) {
     return;
   }
 

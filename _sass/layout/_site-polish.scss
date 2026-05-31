@@ -777,7 +777,7 @@ body::before {
   }
 }
 
-@media (hover: none), (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) {
   .home-hero__circuit path,
   .home-hero__circuit circle,
   .home-atmosphere__orb,
