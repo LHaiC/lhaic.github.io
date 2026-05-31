@@ -2,14 +2,17 @@
 
 <p class="footer-meta">
   <a href="/sitemap/">Sitemap</a>
-{% assign goatcounter_code = site.goatcounter.code | default: "" %}
-{% if goatcounter_code != "" %}
-  <span id="goatcounter-footer" hidden>
-    <span class="footer-meta__separator" aria-hidden="true">·</span>
-    <span class="footer-meta__label">Total visits</span>
-    <span id="goatcounter-total" class="footer-meta__value" aria-live="polite"></span>
-  </span>
-{% endif %}
+{% assign visitor_page_id = site.visitor_badge.page_id | default: "haichuanliu.top" %}
+{% assign visitor_left_text = site.visitor_badge.left_text | default: "visitors" %}
+  <span class="footer-meta__separator" aria-hidden="true">·</span>
+  <a class="footer-meta__visitor-badge"
+     href="https://visitor-badge.laobi.icu/"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Visitor count">
+    <img src="https://visitor-badge.laobi.icu/badge?page_id={{ visitor_page_id | uri_escape }}&left_text={{ visitor_left_text | uri_escape }}"
+         alt="Visitors">
+  </a>
 </p>
 
 <!-- Support for MatJax -->
@@ -25,40 +28,5 @@
     mermaid.initialize({startOnLoad:true, theme:'default'});
     await mermaid.run({querySelector:'code.language-mermaid'});
 </script>
-
-{% if goatcounter_code != "" %}
-<script>
-  (function () {
-    var footerCounter = document.getElementById("goatcounter-footer");
-    var totalCounter = document.getElementById("goatcounter-total");
-    var url = "https://{{ goatcounter_code }}.goatcounter.com/counter/TOTAL.json";
-
-    if (!footerCounter || !totalCounter || !window.fetch) {
-      return;
-    }
-
-    fetch(url, { credentials: "omit" })
-      .then(function (response) {
-        if (!response.ok) {
-          throw new Error("GoatCounter total unavailable");
-        }
-        return response.json();
-      })
-      .then(function (data) {
-        if (!data || !data.count) {
-          return;
-        }
-        totalCounter.textContent = data.count;
-        footerCounter.hidden = false;
-      })
-      .catch(function () {
-        footerCounter.hidden = true;
-      });
-  }());
-</script>
-<script data-cfasync="false"
-        data-goatcounter="https://{{ goatcounter_code }}.goatcounter.com/count"
-        async src="https://gc.zgo.at/count.js"></script>
-{% endif %}
 
 <!-- end custom footer snippets -->

@@ -16,7 +16,7 @@ description              : &description "Haichuan Liu's personal academic homepa
 url                      : https://www.haichuanliu.top # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "lhaic/lhaic.github.io"
-asset_version            : "20260531-motion-default"
+asset_version            : "20260531-visitor-motion"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
@@ -156,8 +156,9 @@ analytics:
   google:
     tracking_id          : G-6VFLCJTJ3J
 
-goatcounter:
-  code                   : haichuanliu
+visitor_badge:
+  page_id                : haichuanliu.top
+  left_text              : visitors
 
 
 # Reading Files

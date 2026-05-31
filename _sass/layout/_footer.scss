@@ -80,6 +80,17 @@
   font-weight: bold;
 }
 
+.footer-meta__visitor-badge {
+  display: inline-flex;
+  vertical-align: middle;
+
+  img {
+    display: block;
+    height: 20px;
+    max-width: 100%;
+  }
+}
+
 .page__footer-follow {
   ul {
     margin: 0;

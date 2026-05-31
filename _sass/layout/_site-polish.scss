@@ -149,8 +149,13 @@ body::before {
   width: calc(100% + 4rem);
   height: 27rem;
   pointer-events: none;
-  opacity: 0.95;
+  opacity: 0.58;
   z-index: 0;
+  transition: opacity 0.22s ease;
+}
+
+.page__content.is-motion-active .home-network {
+  opacity: 0.95;
 }
 
 .home-atmosphere {
@@ -206,7 +211,14 @@ body::before {
   border-radius: 50%;
   background: var(--site-node);
   box-shadow: 0 0 18px var(--site-node);
-  animation: node-pulse 5.8s ease-in-out infinite;
+  opacity: 0.18;
+  transform: scale(0.75);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.page__content.is-motion-active .home-atmosphere__orb {
+  opacity: 0.8;
+  transform: scale(1.05);
 }
 
 .home-atmosphere__orb--one {
@@ -256,8 +268,9 @@ body::before {
   background:
     linear-gradient(115deg, transparent 0 36%, var(--site-glass-edge) 48%, transparent 60%),
     radial-gradient(circle at var(--pointer-x) var(--pointer-y), var(--site-trace-strong), transparent 13rem);
-  opacity: 0.28;
+  opacity: 0.14;
   mix-blend-mode: soft-light;
+  transition: opacity 0.22s ease;
 }
 
 .home-hero::after {
@@ -267,14 +280,23 @@ body::before {
   height: 11rem;
   border: 1px solid var(--site-trace);
   border-radius: 34% 66% 54% 46%;
-  opacity: 0.45;
-  animation: soft-drift 16s ease-in-out infinite;
+  opacity: 0.18;
+  transition: opacity 0.22s ease, transform 0.22s ease;
 }
 
-.home-hero:hover {
+.home-hero.is-motion-active {
   transform: translateY(-1px);
   border-color: var(--site-underline-hover);
   box-shadow: var(--site-shadow), inset 0 1px 0 var(--site-glass-edge);
+}
+
+.home-hero.is-motion-active::before {
+  opacity: 0.32;
+}
+
+.home-hero.is-motion-active::after {
+  opacity: 0.42;
+  transform: translate3d(-0.25rem, 0.25rem, 0) rotate(5deg);
 }
 
 .home-hero > :not(.home-hero__circuit) {
@@ -296,22 +318,29 @@ body::before {
 
 .home-hero__circuit path {
   stroke-dasharray: 9 12;
-  animation: trace-flow 18s linear infinite;
 }
 
-.home-hero:hover .home-hero__circuit {
+.home-hero.is-motion-active .home-hero__circuit {
   opacity: 0.72;
   transform: translate3d(-0.35rem, -0.18rem, 0);
 }
 
-.home-hero:hover .home-hero__circuit path {
+.home-hero.is-motion-active .home-hero__circuit path {
   stroke: var(--site-trace-strong);
-  animation-duration: 7s;
+  animation: trace-flow 8s linear infinite;
 }
 
 .home-hero__circuit circle {
   stroke-width: 1;
-  animation: node-pulse 4.8s ease-in-out infinite;
+  opacity: 0.56;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.home-hero.is-motion-active .home-hero__circuit circle {
+  opacity: 0.92;
+  transform: scale(1.08);
 }
 
 .eyebrow {
@@ -723,28 +752,6 @@ body::before {
   }
 }
 
-@keyframes node-pulse {
-  0%, 100% {
-    opacity: 0.42;
-    transform: scale(0.92);
-  }
-
-  50% {
-    opacity: 0.86;
-    transform: scale(1.08);
-  }
-}
-
-@keyframes soft-drift {
-  0%, 100% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-
-  50% {
-    transform: translate3d(-0.4rem, 0.55rem, 0) rotate(10deg);
-  }
-}
-
 @media (max-width: 900px) {
   .research-focus,
   .skill-grid {
@@ -767,7 +774,12 @@ body::before {
   }
 
   .home-network {
-    display: none;
+    top: -1rem;
+    right: -1rem;
+    left: -1rem;
+    width: calc(100% + 2rem);
+    height: 22rem;
+    opacity: 0.5;
   }
 
   .home-hero__circuit {
