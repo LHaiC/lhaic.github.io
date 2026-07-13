@@ -1,41 +1,241 @@
-/* CV Layout Specific Styles */
-.cv-header-nav {
-  padding: 1rem 0;
-  text-align: center;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid #f2f2f2;
+/* Screen and print styles for the HTML CV. */
+
+.cv-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
 }
 
-.cv-header-nav .home-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background-color: #2a7ae2;
-  color: white;
+.cv-actions a,
+.cv-actions button {
+  padding: 0.45rem 0.75rem;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  background: #fff;
+  color: #333;
+  font: inherit;
+  line-height: 1.2;
   text-decoration: none;
-  border-radius: 4px;
-  font-weight: 500;
-  transition: background-color 0.2s;
+  cursor: pointer;
 }
 
-.cv-header-nav .home-button:hover {
-  background-color: #1756a9;
+.cv-document {
+  color: var(--global-text-color);
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
-.cv-container {
-  max-width: 1000px;
-  margin: 0 auto;
+.cv-document a {
+  color: var(--global-link-color);
+  text-decoration: none;
 }
 
-/* Download links styling */
-.cv-download-links {
-  margin-top: 2rem;
+.cv-document a:hover {
+  text-decoration: underline;
+}
+
+.cv-heading {
+  margin-bottom: 1.5rem;
   text-align: center;
-  padding: 1rem;
-  border-top: 1px solid #f2f2f2;
 }
 
-.cv-download-links a {
-  margin: 0 0.5rem;
+.cv-heading h1 {
+  margin: 0;
+  color: var(--global-text-color);
+  font-size: 2.2rem;
+  line-height: 1.15;
+}
+
+.cv-heading h1 span {
+  margin-left: 0.25em;
+  font-size: 0.65em;
+  font-weight: 500;
+}
+
+.cv-subtitle {
+  margin: 0.2rem 0 0.55rem;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+}
+
+.cv-contact {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.cv-contact span {
+  margin: 0 0.35rem;
+}
+
+.cv-document .resume-section {
+  margin: 0 0 1.15rem;
+}
+
+.cv-document .resume-section h2 {
+  margin: 0 0 0.45rem;
+  padding: 0 0 0.15rem;
+  border-bottom: 1px solid var(--academic-divider);
+  color: var(--global-text-color);
+  font-size: 1.15rem;
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+}
+
+.cv-document .cv-summary {
+  padding: 0;
+  border-left: 0;
+}
+
+.cv-document .cv-summary p {
+  margin: 0;
+}
+
+.cv-document .resume-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.25rem 0;
+  break-inside: avoid;
+}
+
+.cv-document .resume-item span {
+  display: block;
+  color: var(--global-text-color-light);
+}
+
+.cv-document .resume-item time {
+  flex: 0 0 auto;
+  color: var(--global-text-color-light);
+  font-size: inherit;
+}
+
+.cv-skills {
+  margin: 0;
+}
+
+.cv-skills > div {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: 0.75rem;
+  padding: 0.15rem 0;
+}
+
+.cv-skills dt {
+  font-weight: 700;
+}
+
+.cv-skills dd {
+  margin: 0;
+}
+
+.cv-publication {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: 0.25rem;
+  padding: 0.35rem 0;
+  border: 0;
+  break-inside: avoid;
+}
+
+.cv-publication__number {
+  color: var(--global-text-color);
+  font-size: inherit;
+}
+
+.cv-document .cv-publication h3 {
+  margin: 0;
+  color: var(--global-text-color);
+  font-size: inherit;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.cv-document .cv-publication p {
+  margin: 0.1rem 0 0;
+}
+
+.cv-publication__venue {
+  color: var(--global-text-color-light);
+  font-style: italic;
+}
+
+@media (max-width: 700px) {
+  .cv-layout #main {
+    padding-top: 1rem;
+  }
+
+  .cv-actions {
+    padding: 0.75rem;
+    margin: 0;
+  }
+
+  .cv-document {
+    padding: 0;
+  }
+
+  .cv-document .resume-item {
+    display: block;
+  }
+
+  .cv-document .resume-item time {
+    display: block;
+    margin-top: 0.1rem;
+  }
+
+  .cv-skills > div {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-bottom: 0.35rem;
+  }
+
+  .cv-contact span {
+    display: none;
+  }
+
+  .cv-contact a {
+    display: block;
+  }
+}
+
+@page {
+  size: A4;
+  margin: 12mm 14mm;
+}
+
+@media print {
+  html,
+  body.cv-layout {
+    background: #fff !important;
+  }
+
+  .cv-layout .masthead,
+  .cv-layout .sidebar,
+  .cv-layout .page__footer,
+  .cv-actions {
+    display: none !important;
+  }
+
+  .cv-layout #main,
+  .cv-layout .archive {
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .cv-document {
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9.5pt;
+  }
+
+  .cv-document a {
+    color: #000 !important;
+  }
 }

@@ -21,7 +21,9 @@ layout: compress
     {% include masthead.html %}
 
     <div id="main" role="main">
-      <div class="container">
+      {% include sidebar.html %}
+
+      <div class="archive">
         {{ content }}
       </div>
     </div>

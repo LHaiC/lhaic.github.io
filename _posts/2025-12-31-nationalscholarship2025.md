@@ -1,5 +1,7 @@
 ---
-title: 'Awarded National Scholarship for Academic Year 2024-2025'
+title: 'Received the National Scholarship for Academic Year 2024-2025'
+award_name: 'National Scholarship, Academic Year 2024-2025'
+award_name_zh: '2024-2025学年国家奖学金'
 date: 2025-12-31
 permalink: /posts/2025/12/nationalscholarship2025/
 tags:

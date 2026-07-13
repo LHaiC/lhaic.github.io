@@ -23,10 +23,10 @@ asset_version            : "20260531-visitor-motion"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "pure_nano_ice.jpg"
+  avatar           : "neimeng_selfie.jpg"
   name             : "Haichuan Liu"
   pronouns         : # example: "she/her"  
-  bio              : "Undergraduate student at [Peking University](https://english.pku.edu.cn/)"
+  bio              : "Ph.D. student at [IC@PKU](https://ic.pku.edu.cn/)"
   location         : "Beijing, China"
   employer         : "Peking University"
   uri              : # URL
@@ -139,7 +139,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 :  "pure_nano_ice.jpg"
+og_image                 :  "neimeng_selfie.jpg"
 og_description           :  "Haichuan Liu's personal academic website."
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
