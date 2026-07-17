@@ -6,6 +6,8 @@ permalink: /publication/2026-01-19-heterosta
 excerpt: ''
 date: 2026-01-19
 venue: 'IEEE/ACM Asia and South Pacific Design Automation Conference (ASPDAC), Hong Kong, Jan, 2026.'
+venue_short: "ASPDAC'26"
+venue_url: 'https://www.aspdac.com/aspdac2026/index.html'
 authors: "Zizheng Guo, Haichuan Liu, Xizhe Shi, Shenglu Hua, Zuodong Zhang, Chunyuan Zhao, Runsheng Wang and Yibo Lin*"
 # slidesurl: 'http://academicpages.github.io/files/slides1.pdf'
 paperurl: 'https://arxiv.org/pdf/2511.11660v1'

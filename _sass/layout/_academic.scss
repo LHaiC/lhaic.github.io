@@ -24,6 +24,13 @@
     max-width: 175px;
   }
 
+  /* Center the avatar on the sidebar column; text stays left-aligned */
+  .sidebar .author__avatar img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
   .sidebar .author__bio,
   .sidebar .author__bio a {
     overflow-wrap: anywhere;
@@ -42,49 +49,28 @@ hr {
   border-top-color: var(--academic-divider);
 }
 
-.home-hero {
-  margin-bottom: 2.5rem;
-  padding: 0.25rem 0 1.8rem;
-  border-bottom: 1px solid var(--academic-divider);
-}
-
-.eyebrow {
-  margin-bottom: 0.65rem;
-  color: var(--global-link-color);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.home-hero h1 {
-  margin: 0;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.08;
-  letter-spacing: -0.035em;
-}
-
-.home-hero h1 span {
-  margin-left: 0.35rem;
-  color: var(--global-text-color-light);
-  font-size: 0.5em;
-  font-weight: 500;
-  letter-spacing: 0;
-}
-
-.home-hero__lead {
-  max-width: 64ch;
-  margin: 1rem 0 1.35rem;
-  color: var(--global-text-color-light);
-  font-size: 1.05rem;
-  line-height: 1.65;
-}
-
-.home-hero__actions,
 .publication-card__links {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
+}
+
+.publication-card__links a {
+  display: inline-block;
+  padding: 0.22rem 0.7rem;
+  border: 1px solid var(--academic-divider);
+  border-radius: 999px;
+  color: var(--global-text-color);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.publication-card__links a:hover {
+  border-color: var(--global-link-color);
+  color: var(--global-link-color);
+  text-decoration: none;
 }
 
 .news-list {
@@ -161,9 +147,28 @@ hr {
   line-height: 1.45;
 }
 
-.publication-card__links a {
-  font-size: 0.82rem;
-  font-weight: 600;
+.publication-badge {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.05rem 0.5rem;
+  border: 1px solid var(--global-accent-color);
+  border-radius: 3px;
+  color: var(--global-accent-color);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  vertical-align: 0.08em;
+}
+
+a.publication-badge {
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+a.publication-badge:hover {
+  background-color: var(--global-accent-color);
+  color: var(--global-bg-color);
+  text-decoration: none;
 }
 
 .resume-section {
@@ -240,4 +245,82 @@ hr {
     display: block;
     margin-top: 0.2rem;
   }
+}
+
+/* ==========================================================================
+   REFINEMENTS (typography & micro-interactions)
+   ========================================================================== */
+
+/* Quiet underlines that come alive on hover (only where links are
+   already underlined; chips and nav links stay clean). */
+.page__content a,
+.news-item a {
+  text-underline-offset: 0.18em;
+  text-decoration-color: var(--academic-divider);
+  transition: text-decoration-color 0.2s ease;
+}
+
+.page__content a:hover,
+.news-item a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* Current page indicator in the masthead */
+.masthead__menu-item--current > a {
+  box-shadow: inset 0 -2px 0 0 var(--global-accent-color);
+}
+
+/* Selection & keyboard focus */
+::selection {
+  background: rgba(138, 70, 83, 0.16);
+}
+
+html[data-theme="dark"] ::selection {
+  background: rgba(206, 154, 165, 0.3);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--global-accent-color);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   LHaiC wordmark banner on the home page
+   -------------------------------------------------------------------------- */
+
+.lhc-wordmark {
+  width: 70%;
+  max-width: 720px;
+  margin: 0 auto 0.5rem;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.lhc-wordmark__primary {
+  stroke: #8A4653;
+}
+
+.lhc-wordmark__accent {
+  stroke: #9C7A38;
+}
+
+.lhc-wordmark__dot {
+  fill: #9C7A38;
+}
+
+html[data-theme="dark"] .lhc-wordmark__primary {
+  stroke: #E4C2C8;
+}
+
+html[data-theme="dark"] .lhc-wordmark__accent {
+  stroke: #D9BE8C;
+}
+
+html[data-theme="dark"] .lhc-wordmark__dot {
+  fill: #D9BE8C;
 }

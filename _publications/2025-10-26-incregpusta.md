@@ -6,6 +6,8 @@ permalink: /publication/2025-10-26-incregpusta
 excerpt: ''
 date: 2025-10-26
 venue: 'IEEE/ACM International Conference on Computer-Aided Design (ICCAD), Munich, Germany, Oct, 2025.'
+venue_short: "ICCAD'25"
+venue_url: 'https://2025.iccad.com/'
 authors: "Haichuan Liu†, Zizheng Guo†, Runsheng Wang and Yibo Lin*"
 # slidesurl: 'http://academicpages.github.io/files/slides1.pdf'
 paperurl: 'https://www.haichuanliu.top/files/ICCAD2025_IncreGPUSTA.pdf'

@@ -1,0 +1,15 @@
+<article class="publication-card">
+  <h3 class="publication-card__title"><a href="{{ base_path }}{{ post.url }}">{{ post.title }}</a></h3>
+  {% if post.authors %}
+    <p class="publication-card__authors">{% include linked-authors.html authors=post.authors %}</p>
+  {% endif %}
+  {% if post.venue %}
+    <p class="publication-card__venue">{% if post.venue_short %}{% if post.venue_url %}<a class="publication-badge" href="{{ post.venue_url }}" target="_blank" rel="noopener noreferrer">{{ post.venue_short }}</a>{% else %}<span class="publication-badge">{{ post.venue_short }}</span>{% endif %}{% endif %}{{ post.venue }}</p>
+  {% endif %}
+  <div class="publication-card__links">
+    <a href="{{ base_path }}{{ post.url }}">Details</a>
+    {% if post.paperurl %}<a href="{{ post.paperurl }}">Paper</a>{% endif %}
+    {% if post.slidesurl %}<a href="{{ post.slidesurl }}">Slides</a>{% endif %}
+    {% if post.bibtexurl %}<a href="{{ post.bibtexurl }}">BibTeX</a>{% endif %}
+  </div>
+</article>

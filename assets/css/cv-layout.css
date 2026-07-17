@@ -206,6 +206,16 @@
 }
 
 @media print {
+  /* Force light-theme colors so print output is identical in both themes */
+  :root,
+  html[data-theme="dark"] {
+    --global-bg-color: #fff;
+    --global-text-color: #494e52;
+    --global-text-color-light: #9ba1a6;
+    --global-link-color: #8a4653;
+    --academic-divider: #bfc2c7;
+  }
+
   html,
   body.cv-layout {
     background: #fff !important;

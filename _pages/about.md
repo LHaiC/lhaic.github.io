@@ -7,6 +7,8 @@ redirect_from:
   - /about.html
 ---
 
+{% include lhc-wordmark.html %}
+
 I am **Haichuan Liu (刘海川)**, a Ph.D. student at the School of Integrated Circuits, Peking University. I am advised by Prof. [Yibo Lin](https://yibolin.com/).
 
 My research focuses on high-performance electronic design automation (EDA), with particular interests in:

@@ -39,17 +39,17 @@ html[data-theme="dark"] {
     --global-bg-color                   : #{$background};
     --global-footer-bg-color            : #{$background};
     --global-border-color               : #{$light-gray};
-    --global-dark-border-color          : #{$background-light};
     --global-code-background-color      : #fafafa;
     --global-code-text-color            : #{$darker-gray};
     --global-fig-caption-color          : #{$light-gray};
-    --global-link-color                 : #94BBC5;
-    --global-link-color-hover           : #B0D2D9;
-    --global-link-color-visited         : #6A949E;
+    --global-link-color                 : #CE9AA5;
+    --global-link-color-hover           : #E4BEC6;
+    --global-link-color-visited         : #A97A85;
     --global-masthead-link-color        : #{$text};
     --global-masthead-link-color-hover  : #{$background-light};
     --global-text-color                 : #{$text};
     --global-text-color-light           : #{$light-gray};
     --global-thead-color                : #{$background-lighter};
+    --global-accent-color               : #C9A86A;
     --academic-divider                  : rgba(255, 255, 255, 0.28);
 }

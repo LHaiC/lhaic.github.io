@@ -6,6 +6,8 @@ permalink: /publication/2026-05-08-elmoreceff
 excerpt: ''
 date: 2026-05-08
 venue: 'IEEE/ACM International Symposium of EDA (ISEDA), Singapore, May, 2026.'
+venue_short: "ISEDA'26"
+venue_url: 'https://www.eda2.com/iseda/index.html'
 authors: "Haichuan Liu†, Zizheng Guo†, Runsheng Wang and Yibo Lin*"
 # slidesurl: 'http://academicpages.github.io/files/slides1.pdf'
 # paperurl: 'https://arxiv.org/pdf/2511.11660v1'

@@ -4,5 +4,12 @@ services:
     build: .
     volumes: [ .:/usr/src/app ]
     ports: [ 4000:4000 ]
-    user: 1000:1000
+    # Run as the host user so generated files (_site, .jekyll-cache) are owned
+    # by you instead of root. Set PUID/PGID when invoking compose, e.g.:
+    #   PUID=$(id -u) PGID=$(id -g) docker compose up
+    user: "${PUID:?Set PUID}:${PGID:?Set PGID}"
+    environment:
+      - BUNDLE_IGNORE_CONFIG=1
+      - BUNDLE_FROZEN=1
+      - HOME=/tmp
     command: jekyll serve -H 0.0.0.0 -w

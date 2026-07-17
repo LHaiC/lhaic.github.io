@@ -31,8 +31,7 @@ $sidebar-screen-min-width   : 1024px;
     --global-base-color                 : #{$gray};
     --global-bg-color                   : #fff;
     --global-footer-bg-color            : #f2f3f3;
-    --global-border-color               : #{$lighter-gray};
-    --global-dark-border-color          : #bdc1c4;
+    --global-border-color               : #BFC2C7;
     --global-code-background-color      : #fafafa;
     --global-code-text-color            : #{$darker-gray};
     --global-fig-caption-color          : mix(#fff,  #{$dark-gray}, 25%);
@@ -44,5 +43,6 @@ $sidebar-screen-min-width   : 1024px;
     --global-text-color                 : #{$dark-gray};
     --global-text-color-light           : #{$light-gray};
     --global-thead-color                : #{$lighter-gray};
+    --global-accent-color               : #9C7A38;
     --academic-divider                  : #BFC2C7;
 }
