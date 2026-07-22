@@ -18,7 +18,7 @@ redirect_from:
     <h1>Haichuan Liu <span>刘海川</span></h1>
     <p class="cv-subtitle">Curriculum Vitae</p>
     <p class="cv-contact">
-      <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
+      <a href="mailto:{{ site.author.personal_email }}">{{ site.author.personal_email }}</a>
       <span aria-hidden="true">·</span>
       <a href="{{ site.url }}">{{ site.url | remove: "https://" | remove: "http://" }}</a>
       {% if site.author.googlescholar %}

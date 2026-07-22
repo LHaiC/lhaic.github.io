@@ -247,6 +247,19 @@
     white-space: nowrap;
   }
 
+  .author__emails {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .author__email-divider {
+    width: 1px;
+    height: 1em;
+    margin: 0 2px;
+    background: var(--global-border-color);
+  }
+
   a {
     display: block;
     margin-bottom: 5px;

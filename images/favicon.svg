@@ -1,33 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <!-- Concept A: "silicon monogram" — LHC as interconnect traces on a chip -->
-  <g fill="#6F3540">
-    <rect x="64" y="164" width="32" height="24" rx="5"/>
-    <rect x="64" y="244" width="32" height="24" rx="5"/>
-    <rect x="64" y="324" width="32" height="24" rx="5"/>
-    <rect x="416" y="164" width="32" height="24" rx="5"/>
-    <rect x="416" y="244" width="32" height="24" rx="5"/>
-    <rect x="416" y="324" width="32" height="24" rx="5"/>
-    <rect x="164" y="64" width="24" height="32" rx="5"/>
-    <rect x="244" y="64" width="24" height="32" rx="5"/>
-    <rect x="324" y="64" width="24" height="32" rx="5"/>
-    <rect x="164" y="416" width="24" height="32" rx="5"/>
-    <rect x="244" y="416" width="24" height="32" rx="5"/>
-    <rect x="324" y="416" width="24" height="32" rx="5"/>
-  </g>
-  <rect x="96" y="96" width="320" height="320" rx="24" fill="#8A4653"/>
-  <g fill="none" stroke="#F5F1EA" stroke-width="26" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 152 192 V 320 H 196"/>
-    <path d="M 236 192 V 320 M 280 192 V 320 M 236 256 H 280"/>
-    <path d="M 364 192 H 320 V 320 H 364"/>
-  </g>
-  <g fill="#C9A227">
-    <circle cx="152" cy="192" r="8.5"/>
-    <circle cx="196" cy="320" r="8.5"/>
-    <circle cx="236" cy="192" r="8.5"/>
-    <circle cx="236" cy="320" r="8.5"/>
-    <circle cx="280" cy="192" r="8.5"/>
-    <circle cx="280" cy="320" r="8.5"/>
-    <circle cx="364" cy="192" r="8.5"/>
-    <circle cx="364" cy="320" r="8.5"/>
+  <!-- A compact LHC monogram: the shared stem keeps the mark legible at 16px. -->
+  <rect width="512" height="512" rx="92" fill="#8A4653"/>
+  <g fill="none" stroke="#F5F1EA" stroke-width="64" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M88 88 V424 H210"/>
+    <path d="M256 88 V424 M256 256 H340"/>
+    <path d="M440 88 H382 C350 88 340 112 340 150 V362 C340 400 350 424 382 424 H440"/>
   </g>
 </svg>

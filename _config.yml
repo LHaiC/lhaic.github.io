@@ -30,7 +30,8 @@ author:
   location         : "Beijing, China"
   employer         : "Peking University"
   uri              : # URL
-  email            : "LHaiC@outlook.com" 
+  personal_email   : "LHaiC@outlook.com"
+  school_email     : "haichuanliu@stu.pku.edu.cn"
 
   # Academic websites
   academia         : # URL
