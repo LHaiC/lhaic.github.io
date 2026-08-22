@@ -10,7 +10,7 @@ venue_short: "ISEDA'26"
 venue_url: 'https://www.eda2.com/iseda/index.html'
 authors: "Haichuan Liu†, Zizheng Guo†, Runsheng Wang and Yibo Lin*"
 # slidesurl: 'http://academicpages.github.io/files/slides1.pdf'
-# paperurl: 'https://arxiv.org/pdf/2511.11660v1'
+paperurl: 'https://www.haichuanliu.top/files/ISEDA2026_ElmoreCeff.pdf'
 # bibtexurl: 'http://academicpages.github.io/files/bibtex1.bib'
 # citation: 'Your Name, You. (2024). &quot;Paper Title Number 3.&quot; <i>GitHub Journal of Bugs</i>. 1(3).'
 ---

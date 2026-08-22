@@ -31,3 +31,4 @@ My research focuses on high-performance electronic design automation (EDA), with
 ## Recommended
 
 - [The Art of HPC](https://theartofhpc.com/) — Victor Eijkhout of TACC
+- [The Modern Algorithmic Toolbox](https://web.stanford.edu/class/cs168/) — Gregory Valiant, Stanford University
