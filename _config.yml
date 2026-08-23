@@ -23,7 +23,7 @@ asset_version            : "20260531-visitor-motion"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "neimeng_selfie.jpg"
+  avatar           : "new_haircut.jpg"
   name             : "Haichuan Liu"
   pronouns         : # example: "she/her"  
   bio              : "Ph.D. student at [IC@PKU](https://ic.pku.edu.cn/)"
@@ -113,7 +113,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 :  "neimeng_selfie.jpg"
+og_image                 :  "new_haircut.jpg"
 og_description           :  "Haichuan Liu's personal academic website."
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
