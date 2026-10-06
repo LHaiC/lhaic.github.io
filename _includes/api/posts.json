@@ -1,0 +1,20 @@
+{% comment %}
+  Shared body for /api/posts.json — activities (news & awards), derived from _posts.
+{% endcomment %}
+{
+  "generated": {{ site.time | date: '%Y-%m-%dT%H:%M:%S%z' | jsonify }},
+  "count": {{ site.posts | size }},
+  "posts": [
+{%- for post in site.posts %}
+    {
+      "title": {{ post.title | jsonify }},
+      "award_name": {{ post.award_name | jsonify }},
+      "award_name_zh": {{ post.award_name_zh | jsonify }},
+      "date": {{ post.date | date: '%Y-%m-%d' | jsonify }},
+      "url": {{ site.url | append: site.baseurl | append: post.url | jsonify }},
+      "tags": {{ post.tags | jsonify }},
+      "excerpt": {{ post.content | markdownify | strip_html | strip_newlines | truncate: 300 | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+{%- endfor %}
+  ]
+}

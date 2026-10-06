@@ -1,0 +1,31 @@
+---
+permalink: /robots.txt
+sitemap: false
+layout: null
+---
+# robots.txt — {{ site.url }}
+# All crawlers welcome. AI/LLM agents are explicitly permitted below so that
+# this site remains visible to AI search products and assistant citations.
+
+User-agent: *
+Allow: /
+
+# AI crawlers (training, search-index, and live-fetch agents)
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: anthropic-ai
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: GoogleOther
+User-agent: Applebot-Extended
+User-agent: meta-externalagent
+User-agent: CCBot
+User-agent: Bytespider
+User-agent: Amazonbot
+Allow: /
+
+Sitemap: {{ site.url }}{{ site.baseurl }}/sitemap.xml

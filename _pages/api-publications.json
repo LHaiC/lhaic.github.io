@@ -1,0 +1,6 @@
+---
+permalink: /api/publications.json
+sitemap: false
+layout: null
+---
+{% include api/publications.json %}

@@ -1,0 +1,31 @@
+{% comment %}
+  Highwire Press citation_* meta tags for Google Scholar indexing.
+  Emitted only on publication pages; all fields derive from front matter via
+  _includes/pub-meta.html — author names must match the published PDF exactly.
+{% endcomment %}
+{%- if page.collection == 'publications' %}
+{%- include pub-meta.html -%}
+<meta name="citation_title" content="{{ pub_doc.title | escape_once }}">
+{%- for pub_author in pub_authors %}
+<meta name="citation_author" content="{{ pub_author | strip | escape_once }}">
+{%- endfor %}
+<meta name="citation_publication_date" content="{{ pub_doc.date | date: '%Y/%m/%d' }}">
+{%- if pub_venue_name %}
+  {%- if pub_venue_key == 'journal' %}
+<meta name="citation_journal_title" content="{{ pub_venue_name | escape_once }}">
+  {%- elsif pub_venue_key == 'booktitle' %}
+<meta name="citation_conference_title" content="{{ pub_venue_name | escape_once }}">
+  {%- endif %}
+{%- endif %}
+{%- if pub_pdf_url %}
+<meta name="citation_pdf_url" content="{{ pub_pdf_url }}">
+{%- endif %}
+{%- if pub_doc.doi %}
+<meta name="citation_doi" content="{{ pub_doc.doi }}">
+{%- endif %}
+{%- if pub_doc.arxiv %}
+<meta name="citation_arxiv_id" content="{{ pub_doc.arxiv }}">
+{%- endif %}
+<meta name="citation_language" content="en">
+<meta name="citation_online_date" content="{{ pub_doc.date | date: '%Y/%m/%d' }}">
+{%- endif %}

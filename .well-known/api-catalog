@@ -1,0 +1,23 @@
+{ "linkset":
+  [
+    { "anchor": "https://www.haichuanliu.top/.well-known/api-catalog",
+      "item": [
+        { "href": "https://www.haichuanliu.top/api/profile.json",
+          "type": "application/json",
+          "title": "Author profile (name, affiliation, ORCID, scholarly profile links)" },
+        { "href": "https://www.haichuanliu.top/api/publications.json",
+          "type": "application/json",
+          "title": "Publication records with authors, venue, abstract and BibTeX" },
+        { "href": "https://www.haichuanliu.top/api/posts.json",
+          "type": "application/json",
+          "title": "News and awards entries" },
+        { "href": "https://www.haichuanliu.top/search.json",
+          "type": "application/json",
+          "title": "Site-wide search index" },
+        { "href": "https://www.haichuanliu.top/publications.bib",
+          "type": "application/x-bibtex",
+          "title": "BibTeX records for all publications" }
+      ]
+    }
+  ]
+}

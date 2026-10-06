@@ -16,7 +16,7 @@ description              : &description "Haichuan Liu's personal academic homepa
 url                      : https://www.haichuanliu.top # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "lhaic/lhaic.github.io"
-asset_version            : "20260531-visitor-motion"
+asset_version            : "20261006-search"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
@@ -25,6 +25,7 @@ author:
   # Biographic information
   avatar           : "new_haircut.jpg"
   name             : "Haichuan Liu"
+  name_zh          : "刘海川"
   pronouns         : # example: "she/her"  
   bio              : "Ph.D. student at [IC@PKU](https://ic.pku.edu.cn/)"
   location         : "Beijing, China"
@@ -98,6 +99,11 @@ atom_feed:
   hide                   : false     # change to true to hide the RSS feed in the footer
   path                   : # blank (default) uses feed.xml
 
+# jekyll-feed: include publications alongside posts in feed.xml
+feed:
+  collections:
+    - publications
+
 
 # SEO Related
 google_site_verification : -iEkQoPbVS9zDmnDhAhRfy4V-5FSAMSEHil7A0zfOUg
@@ -120,8 +126,12 @@ og_description           :  "Haichuan Liu's personal academic website."
 social:
   type                   : # Person or Organization (defaults to Person)
   name                   : # If the user or organization name differs from the site's name
-  links: # An array of links to social media profiles
+  links: # An array of links to social media / academic profiles (used as JSON-LD sameAs)
      - "https://github.com/lhaic"
+     - "https://www.linkedin.com/in/lhaic"
+     - "https://orcid.org/0009-0003-8950-8520"
+     - "https://scholar.google.com/citations?user=PLWIiOoAAAAJ"
+     - "https://www.semanticscholar.org/author/Haichuan-Liu/2392898229"
 
 
 # Analytics
@@ -138,6 +148,7 @@ visitor_badge:
 # Reading Files
 include:
   - .htaccess
+  - .well-known
   - _pages
   - files
 exclude:

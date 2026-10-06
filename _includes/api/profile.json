@@ -1,0 +1,35 @@
+{% comment %}
+  Shared body for /api/profile.json — derived from site.author in _config.yml.
+{% endcomment %}
+{
+  "name": {{ site.author.name | jsonify }},
+  "name_zh": {{ site.author.name_zh | jsonify }},
+  "bio": {{ site.author.bio | markdownify | strip_html | strip_newlines | jsonify }},
+  "description": {{ site.description | jsonify }},
+  "employer": {{ site.author.employer | jsonify }},
+  "location": {{ site.author.location | jsonify }},
+  "url": {{ site.url | append: site.baseurl | jsonify }},
+  "avatar": {% if site.author.avatar contains '://' %}{{ site.author.avatar | jsonify }}{% else %}{{ site.author.avatar | prepend: '/images/' | prepend: site.baseurl | prepend: site.url | jsonify }}{% endif %},
+  "email": {
+    "personal": {{ site.author.personal_email | jsonify }},
+    "school": {{ site.author.school_email | jsonify }}
+  },
+  "profiles": {
+    "googlescholar": {{ site.author.googlescholar | jsonify }},
+    "orcid": {{ site.author.orcid | jsonify }},
+    "semantic_scholar": {{ site.author.semantic | jsonify }},
+    "arxiv": {{ site.author.arxiv | jsonify }},
+    "github": {% if site.author.github %}{{ 'https://github.com/' | append: site.author.github | jsonify }}{% else %}null{% endif %},
+    "linkedin": {% if site.author.linkedin %}{{ 'https://www.linkedin.com/in/' | append: site.author.linkedin | jsonify }}{% else %}null{% endif %}
+  },
+  "sameAs": {{ site.social.links | jsonify }},
+  "endpoints": {
+    "publications_json": {{ site.url | append: site.baseurl | append: '/api/publications.json' | jsonify }},
+    "publications_bib": {{ site.url | append: site.baseurl | append: '/publications.bib' | jsonify }},
+    "posts_json": {{ site.url | append: site.baseurl | append: '/api/posts.json' | jsonify }},
+    "search_index": {{ site.url | append: site.baseurl | append: '/search.json' | jsonify }},
+    "feed": {{ site.url | append: site.baseurl | append: '/feed.xml' | jsonify }},
+    "sitemap": {{ site.url | append: site.baseurl | append: '/sitemap.xml' | jsonify }},
+    "llms_txt": {{ site.url | append: site.baseurl | append: '/llms.txt' | jsonify }}
+  }
+}

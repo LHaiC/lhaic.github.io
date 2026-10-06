@@ -9,10 +9,7 @@ venue: 'IEEE/ACM International Conference on Computer-Aided Design (ICCAD), Muni
 venue_short: "ICCAD'25"
 venue_url: 'https://2025.iccad.com/'
 authors: "Haichuan Liu†, Zizheng Guo†, Runsheng Wang and Yibo Lin*"
-# slidesurl: 'http://academicpages.github.io/files/slides1.pdf'
-paperurl: 'https://www.haichuanliu.top/files/ICCAD2025_IncreGPUSTA.pdf'
-# bibtexurl: 'http://academicpages.github.io/files/bibtex1.bib'
-# citation: 'Your Name, You. (2024). &quot;Paper Title Number 3.&quot; <i>GitHub Journal of Bugs</i>. 1(3).'
+paperurl: '/files/ICCAD2025_IncreGPUSTA.pdf'
 ---
 
 Static timing analysis (STA) plays an essential role in VLSI design optimization. While CPU-based incremental STA methods reduce computational overhead by selectively updating affected circuit regions, and GPU-accelerated engines improve full-circuit analysis throughput, effectively combining these approaches has remained challenging. Existing solutions offer only partial incrementality, either switching to CPU processing for small modifications or handling solely delay value changes without supporting structural updates. We introduce IncreGPUSTA, a novel GPU-accelerated incremental STA algorithm with dual-CSR data structures and incremental levelization that efficiently processes timing updates for both localized and structural modifications. Experimental results on industrial benchmarks demonstrate speedups of up to 3.06$$\times$$ over GPU full Timer and up to 72.50$$\times$$ over CPU incremental Timer for million-scale designs.

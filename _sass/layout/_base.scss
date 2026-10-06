@@ -5,6 +5,9 @@ html {
   /* sticky footer fix */
   position: relative;
   min-height: 100%;
+  /* always reserve the scrollbar gutter so opening overlays or switching
+     between short and long pages never shifts the layout horizontally */
+  scrollbar-gutter: stable;
 }
 
 body {

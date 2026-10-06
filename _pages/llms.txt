@@ -1,0 +1,39 @@
+---
+permalink: /llms.txt
+sitemap: false
+layout: null
+---
+# {{ site.title }}
+
+> {{ site.author.name }}{% if site.author.name_zh %} ({{ site.author.name_zh }}){% endif %} — {{ site.author.bio | markdownify | strip_html | strip_newlines }}, {{ site.author.employer }}. Research: high-performance EDA, GPU acceleration, static timing analysis, and timing-driven optimization.
+
+## Pages
+
+- [About]({{ site.url }}{{ site.baseurl }}/): bio and recent activities
+- [Publications]({{ site.url }}{{ site.baseurl }}/publications/): full publication list
+- [Activities]({{ site.url }}{{ site.baseurl }}/activities/): news and awards archive
+- [CV]({{ site.url }}{{ site.baseurl }}/cv/): curriculum vitae
+- [Sitemap]({{ site.url }}{{ site.baseurl }}/sitemap/): human-readable site index
+
+## Publications
+
+{% for doc in site.publications reversed -%}
+- [{{ doc.title }}]({{ site.url }}{{ site.baseurl }}{{ doc.url }}) — {{ doc.venue_short | default: doc.venue }}, {{ doc.date | date: '%Y' }}{% if doc.paperurl %} ([PDF]({% if doc.paperurl contains '://' %}{{ doc.paperurl }}{% else %}{{ site.url }}{{ site.baseurl }}{{ doc.paperurl }}{% endif %})){% endif %}
+{% endfor %}
+
+## Activities
+
+{% for post in site.posts -%}
+- [{{ post.title }}]({{ site.url }}{{ site.baseurl }}{{ post.url }}) — {{ post.date | date: '%Y-%m-%d' }}
+{% endfor %}
+
+## Machine-readable
+
+- [profile.json]({{ site.url }}{{ site.baseurl }}/api/profile.json): structured profile data
+- [publications.json]({{ site.url }}{{ site.baseurl }}/api/publications.json): publications with BibTeX and abstracts
+- [posts.json]({{ site.url }}{{ site.baseurl }}/api/posts.json): activity (news & awards) entries
+- [search.json]({{ site.url }}{{ site.baseurl }}/search.json): site search index
+- [publications.bib]({{ site.url }}{{ site.baseurl }}/publications.bib): BibTeX for all publications
+- [api-catalog]({{ site.url }}{{ site.baseurl }}/.well-known/api-catalog): RFC 9727 API catalog
+- [sitemap.xml]({{ site.url }}{{ site.baseurl }}/sitemap.xml): XML sitemap
+- [feed.xml]({{ site.url }}{{ site.baseurl }}/feed.xml): Atom feed

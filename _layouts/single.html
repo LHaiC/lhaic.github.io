@@ -58,7 +58,7 @@ layout: default
             <p>Recommended citation: {{ page.citation }}</p>
           {% endif %}
 
-          {% if page.paperurl or page.slidesurl or page.bibtexurl %}
+          {% if page.paperurl or page.slidesurl or page.bibtexurl or page.collection == 'publications' %}
             <p>
               {% assign link_shown = false %}
 
@@ -76,15 +76,21 @@ layout: default
               {% if page.bibtexurl %}
                 {% if link_shown %} | {% endif %}
                 <a href="{{ page.bibtexurl }}">Download Bibtex</a>
+              {% elsif page.collection == 'publications' %}
+                {% if link_shown %} | {% endif %}
+                {%- include pub-meta.html doc=page -%}
+                {%- capture bib_dl -%}{% include bibtex-entry.html doc=page %}{%- endcapture -%}
+                <a href="data:text/plain;charset=utf-8,{{ bib_dl | strip | replace: '%', '%25' | uri_escape }}" download="{{ pub_key }}.bib">BibTeX</a>
               {% endif %}
             </p>
           {% endif %}
+
         </div>
 
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
 
-      {% include post_pagination.html %}
+      {% unless page.collection == 'publications' %}{% include post_pagination.html %}{% endunless %}
     </div>
   </article>
 

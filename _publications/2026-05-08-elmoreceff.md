@@ -9,10 +9,7 @@ venue: 'IEEE/ACM International Symposium of EDA (ISEDA), Singapore, May, 2026.'
 venue_short: "ISEDA'26"
 venue_url: 'https://www.eda2.com/iseda/index.html'
 authors: "Haichuan Liu†, Zizheng Guo†, Runsheng Wang and Yibo Lin*"
-# slidesurl: 'http://academicpages.github.io/files/slides1.pdf'
-paperurl: 'https://www.haichuanliu.top/files/ISEDA2026_ElmoreCeff.pdf'
-# bibtexurl: 'http://academicpages.github.io/files/bibtex1.bib'
-# citation: 'Your Name, You. (2024). &quot;Paper Title Number 3.&quot; <i>GitHub Journal of Bugs</i>. 1(3).'
+paperurl: '/files/ISEDA2026_ElmoreCeff.pdf'
 ---
 
 Accurate and efficient delay calculation is critical for timing-driven optimization, yet existing methods require a trade-off between fast but inaccurate Elmore timers and accurate but slow model order reduction (MOR) techniques. To bridge this gap, we introduce ElmoreCeff, a GPU-friendly Elmore-like delay calculator based on a closed-form effective capacitance model. ElmoreCeff can achieve speedups of up to 40.95$$\times$$ and 5.95$$\times$$ over CPU- and GPU-based MOR timers, respectively, while achieving comparable accuracy. This advantage enhances final quality of results (QoR) of timing optimization, improving worst negative slack (WNS) and total negative slack (TNS) by up to 8.4% and 5.4% compared to optimizations guided by the standard Elmore timer. 

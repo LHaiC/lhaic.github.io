@@ -1,0 +1,9 @@
+---
+permalink: /publications.bib
+sitemap: false
+layout: null
+---
+{% comment %}BibTeX for every entry in _publications/, auto-derived.{% endcomment %}
+{%- for doc in site.publications reversed %}
+{% include bibtex-entry.html doc=doc %}
+{% endfor -%}

@@ -1,0 +1,24 @@
+{% comment %}
+  Renders one BibTeX entry for a publication document.
+  Input: include.doc — a site.publications document (defaults to `page`).
+  All fields are derived by _includes/pub-meta.html; optional front matter
+  fields `doi`, `arxiv`, `booktitle`, `journal` are emitted when present.
+{%- endcomment -%}
+{%- include pub-meta.html doc=include.doc -%}
+@{{ pub_entry_type }}{{"{"}}{{ pub_key }},
+  title     = { {{ pub_doc.title }} },
+  author    = { {{ pub_bib_authors }} },
+  {{ pub_venue_key }} = { {{ pub_venue_name }} },
+  year      = { {{ pub_year }} },
+{%- if pub_doc.pages %}
+  pages     = { {{ pub_doc.pages | replace: '–', '-' | replace: '--', '-' | replace: '-', '--' }} },
+{%- endif %}
+{%- if pub_doc.doi %}
+  doi       = { {{ pub_doc.doi }} },
+  url       = { https://doi.org/{{ pub_doc.doi }} },
+{%- elsif pub_doc.arxiv %}
+  eprint    = { {{ pub_doc.arxiv }} },
+  archivePrefix = { arXiv },
+  url       = { https://arxiv.org/abs/{{ pub_doc.arxiv }} },
+{%- endif %}
+}

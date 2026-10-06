@@ -129,6 +129,40 @@ reference for this):
 - Do **not** delete `_layouts/`, `_includes/`, `_sass/`, `assets/`, `_data/`,
   `images/`, or `files/` — the live theme depends on them even where they look unused.
 
+## Single Source of Truth & Generated Artifacts (2026-10)
+
+Data lives in exactly one place; machine-readable outputs are *derived* by Liquid
+at build time. Never hand-edit generated output; update the source instead.
+
+**Data sources**
+
+- `_publications/*.md` front matter — canonical paper metadata. Optional fields:
+  `doi`, `arxiv` (bare ID), `booktitle`/`journal` (override for the BibTeX venue
+  field; default is `venue` up to its first comma). `paperurl` is site-relative
+  (`/files/x.pdf`) for hosted PDFs, absolute for external links (arXiv).
+- `_posts/*.md` front matter — news/awards (`award_name`, `award_name_zh`, `tags`).
+- `_config.yml` `author:` — profile (incl. `name_zh`); `social.links` feeds JSON-LD `sameAs`.
+- `_data/authors.yml` — co-author homepage URLs (also reused in JSON-LD `author.url`).
+
+**Shared derivations** live in `_includes/pub-meta.html` (parses the `authors`
+string, derives BibTeX key `surnameYEARfirstword`, venue name, absolute URLs).
+`_includes/bibtex-entry.html` renders one BibTeX entry from it.
+
+**Generated pages** (all stubs in `_pages/` with `layout: null`, `sitemap: false`):
+
+- `/publications.bib`, `/publications.json`, `/api/publications.json`,
+  `/api/profile.json`, `/api/posts.json`, `/search.json`, `/llms.txt`,
+  `/robots.txt` — bodies shared via `_includes/api/*.json` where applicable.
+- `/.well-known/api-catalog` — static linkset file (RFC 9727); contains
+  hardcoded absolute URLs, update if the domain changes.
+- Per-page head metadata: `_includes/citation-meta.html` (Google Scholar
+  Highwire tags) and `_includes/structured-data.html` (Person site-wide,
+  ScholarlyArticle/WebSite/BlogPosting JSON-LD) via `_includes/head.html`.
+
+**Search**: masthead icon or `/` opens an overlay backed by `/search.json` +
+`simple-jekyll-search` (npm dep, bundled into `main.min.js`). `/?q=term` deep
+links run the query. After editing `assets/js/_main.js`, run `npm run build:js`.
+
 ## Code Style Guidelines
 
 - Content files: YAML front matter + Markdown (kramdown/GFM). Match the existing front

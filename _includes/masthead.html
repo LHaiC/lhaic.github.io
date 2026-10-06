@@ -23,7 +23,12 @@
             {% endif %}
             <li class="masthead__menu-item{% if is_current %} masthead__menu-item--current{% endif %}"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
-          <li id="theme-toggle" class="masthead__menu-item persist tail">
+          <li id="search-toggle" class="masthead__menu-item persist tail">
+            <button type="button" class="masthead-search" aria-label="Search the site" title="Search (press /)">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            </button>
+          </li>
+          <li id="theme-toggle" class="masthead__menu-item persist">
             <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
           </li>
         </ul>

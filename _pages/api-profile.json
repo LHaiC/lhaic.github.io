@@ -1,0 +1,6 @@
+---
+permalink: /api/profile.json
+sitemap: false
+layout: null
+---
+{% include api/profile.json %}

@@ -1,0 +1,6 @@
+---
+permalink: /search.json
+sitemap: false
+layout: null
+---
+{% include api/search.json %}

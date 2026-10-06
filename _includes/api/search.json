@@ -1,0 +1,49 @@
+{% comment %}
+  Shared body for /search.json — the client-side search index consumed by
+  Simple-Jekyll-Search. Fields deliberately include authors/venue so they are
+  searchable. Derived from publications, posts and content pages.
+{% endcomment %}
+{%- assign _comma = false -%}
+[
+{%- for doc in site.publications reversed %}
+{%- include pub-meta.html doc=doc %}
+  {%- if _comma %},{% endif %}
+  {
+    "title": {{ doc.title | jsonify }},
+    "type": "Publication",
+    "date": {{ doc.date | date: '%Y-%m-%d' | jsonify }},
+    "venue": {{ doc.venue_short | default: pub_venue_name | jsonify }},
+    "authors": {{ pub_bib_authors | replace: ' and ', ', ' | jsonify }},
+    "excerpt": {{ doc.content | markdownify | strip_html | strip_newlines | truncate: 600 | jsonify }},
+    "url": {{ site.baseurl | append: doc.url | jsonify }}
+  }
+  {%- assign _comma = true -%}
+{%- endfor %}
+{%- for post in site.posts %}
+  {%- if _comma %},{% endif %}
+  {
+    "title": {{ post.title | jsonify }},
+    "type": "Activity",
+    "date": {{ post.date | date: '%Y-%m-%d' | jsonify }},
+    "venue": "",
+    "authors": "",
+    "excerpt": {{ post.content | markdownify | strip_html | strip_newlines | truncate: 600 | jsonify }},
+    "url": {{ site.baseurl | append: post.url | jsonify }}
+  }
+  {%- assign _comma = true -%}
+{%- endfor %}
+{%- assign content_pages = site.pages | where_exp: 'p', 'p.sitemap != false' | where_exp: 'p', 'p.title' -%}
+{%- for p in content_pages %}
+  {%- if _comma %},{% endif %}
+  {
+    "title": {{ p.title | jsonify }},
+    "type": "Page",
+    "date": "",
+    "venue": "",
+    "authors": "",
+    "excerpt": {{ p.description | default: '' | jsonify }},
+    "url": {{ site.baseurl | append: p.url | jsonify }}
+  }
+  {%- assign _comma = true -%}
+{%- endfor %}
+]

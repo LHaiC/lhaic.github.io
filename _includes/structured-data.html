@@ -1,0 +1,95 @@
+{% comment %}
+  Schema.org JSON-LD, emitted in <head> on every page.
+    - Person        : site-wide, derived from site.author / site.social
+    - WebSite       : home page only (advertises the /?q= search entry point)
+    - ScholarlyArticle : publication pages, derived by _includes/pub-meta.html
+    - BlogPosting   : _posts pages
+{% endcomment %}
+
+{%- assign sd_url = site.url | append: site.baseurl -%}
+{%- if site.author.avatar contains '://' -%}
+  {%- assign sd_avatar = site.author.avatar -%}
+{%- else -%}
+  {%- assign sd_avatar = site.author.avatar | prepend: '/images/' | prepend: sd_url -%}
+{%- endif -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": {{ site.author.name | default: site.name | jsonify }},
+  {%- if site.author.name_zh %}"alternateName": {{ site.author.name_zh | jsonify }},{% endif %}
+  "url": {{ sd_url | jsonify }},
+  {%- if site.author.avatar %}"image": {{ sd_avatar | jsonify }},{% endif %}
+  {%- if site.author.bio %}"description": {{ site.author.bio | markdownify | strip_html | strip_newlines | jsonify }},{% endif %}
+  {%- if site.author.personal_email %}"email": "mailto:{{ site.author.personal_email }}",{% endif %}
+  {%- if site.author.employer %}
+  "affiliation": { "@type": "Organization", "name": {{ site.author.employer | jsonify }} },
+  {%- endif %}
+  "sameAs": {{ site.social.links | jsonify }}
+}
+</script>
+
+{%- if page.url == '/' %}
+{%- capture sd_search_tpl -%}{{ sd_url }}/?q={search_term_string}{%- endcapture -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ site.title | jsonify }},
+  "url": {{ sd_url | jsonify }},
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": { "@type": "EntryPoint", "urlTemplate": {{ sd_search_tpl | jsonify }} },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{%- endif %}
+
+{%- if page.collection == 'publications' %}
+{%- include pub-meta.html -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": {{ pub_doc.title | jsonify }},
+  "author": [
+    {%- for pub_author in pub_authors -%}
+      {%- assign an = pub_author | strip -%}
+      {%- assign adata = site.data.authors[an] -%}
+      { "@type": "Person", "name": {{ an | jsonify }}{% if adata.uri %}, "url": {{ adata.uri | jsonify }}{% endif %} }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ],
+  "datePublished": {{ pub_doc.date | date: '%Y-%m-%d' | jsonify }},
+  "isPartOf": { "@type": "Periodical", "name": {{ pub_venue_name | jsonify }} },
+  "url": {{ pub_abs_url | jsonify }},
+  {%- if pub_pdf_url %}"contentUrl": {{ pub_pdf_url | jsonify }},
+  "encoding": { "@type": "MediaObject", "contentUrl": {{ pub_pdf_url | jsonify }}, "encodingFormat": "application/pdf" },{% endif %}
+  "abstract": {{ pub_doc.content | markdownify | strip_html | strip_newlines | jsonify }},
+  "sameAs": [
+    {%- assign _sameas = '' -%}
+    {%- if pub_doc.doi -%}{%- capture _sameas %}{{ 'https://doi.org/' | append: pub_doc.doi | jsonify }}{% endcapture -%}{%- endif -%}
+    {%- if pub_doc.arxiv -%}
+      {%- if _sameas != '' -%}{%- assign _sameas = _sameas | append: ', ' -%}{%- endif -%}
+      {%- capture _sameas %}{{ _sameas }}{{ 'https://arxiv.org/abs/' | append: pub_doc.arxiv | jsonify }}{% endcapture -%}
+    {%- endif -%}
+    {{ _sameas }}
+  ],
+  "isAccessibleForFree": true
+}
+</script>
+{%- endif %}
+
+{%- if page.url contains '/posts/' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "datePublished": {{ page.date | date: '%Y-%m-%d' | jsonify }},
+  "author": { "@type": "Person", "name": {{ site.author.name | jsonify }}, "url": {{ sd_url | jsonify }} },
+  "url": {{ sd_url | append: page.url | jsonify }},
+  "mainEntityOfPage": {{ sd_url | append: page.url | jsonify }}
+}
+</script>
+{%- endif %}

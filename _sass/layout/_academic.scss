@@ -290,9 +290,9 @@ button:focus-visible {
    -------------------------------------------------------------------------- */
 
 .lhc-wordmark {
-  width: 70%;
-  max-width: 720px;
-  margin: 0 auto 0.5rem;
+  width: 48%;
+  max-width: 400px;
+  margin: 0.5rem auto 1rem;
 
   svg {
     display: block;
@@ -314,13 +314,13 @@ button:focus-visible {
 }
 
 html[data-theme="dark"] .lhc-wordmark__primary {
-  stroke: #E4C2C8;
+  stroke: #8FA8DC;
 }
 
 html[data-theme="dark"] .lhc-wordmark__accent {
-  stroke: #D9BE8C;
+  stroke: #E0B56F;
 }
 
 html[data-theme="dark"] .lhc-wordmark__dot {
-  fill: #D9BE8C;
+  fill: #E0B56F;
 }

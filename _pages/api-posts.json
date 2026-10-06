@@ -1,0 +1,6 @@
+---
+permalink: /api/posts.json
+sitemap: false
+layout: null
+---
+{% include api/posts.json %}

@@ -1,0 +1,60 @@
+{% comment %}
+  Shared publication metadata derivations — the single place that parses the
+  `authors` string and derives citation/bibliographic fields for a paper.
+
+  Input:
+    include.doc — a site.publications document (defaults to `page`).
+
+  Variables assigned in the caller's scope:
+    pub_doc         the publication document being processed
+    pub_authors     array of cleaned author names (markers removed, "and" split)
+    pub_bib_authors BibTeX-style "and"-joined author string
+    pub_key         BibTeX citation key, e.g. "liu2025incregpusta"
+    pub_venue_name  publication venue title (booktitle/journal override, else
+                    `venue` up to its first comma — locations/dates dropped)
+    pub_venue_key   BibTeX field name for the venue: booktitle|journal|publisher
+    pub_entry_type  BibTeX entry type: inproceedings|article|book
+    pub_year        4-digit publication year
+    pub_abs_url     absolute URL of the publication page
+    pub_pdf_url     absolute URL of the PDF (external URLs kept as-is)
+{% endcomment %}
+{%- assign pub_doc = include.doc | default: page -%}
+{%- assign pub_authors_raw = pub_doc.authors | default: '' | remove: '†' | remove: '*' | replace: ' and ', ', ' -%}
+{%- assign pub_authors = pub_authors_raw | split: ',' -%}
+{%- capture pub_bib_authors -%}
+  {%- for pub_author in pub_authors -%}
+    {{- pub_author | strip -}}
+    {%- unless forloop.last %} and {% endunless -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- assign pub_year = pub_doc.date | date: '%Y' -%}
+{%- assign _first_author = pub_authors | first | strip | split: ' ' -%}
+{%- assign _title_word = pub_doc.title | split: ' ' | first | slugify -%}
+{%- assign pub_key = _first_author | last | downcase | append: pub_year | append: _title_word -%}
+{%- assign pub_venue_name = pub_doc.venue | default: '' | split: ',' | first | strip -%}
+{%- if pub_doc.category == 'manuscripts' -%}
+  {%- assign pub_entry_type = 'article' -%}
+  {%- assign pub_venue_key = 'journal' -%}
+{%- elsif pub_doc.category == 'books' -%}
+  {%- assign pub_entry_type = 'book' -%}
+  {%- assign pub_venue_key = 'publisher' -%}
+{%- else -%}
+  {%- assign pub_entry_type = 'inproceedings' -%}
+  {%- assign pub_venue_key = 'booktitle' -%}
+{%- endif -%}
+{%- if pub_doc.journal -%}
+  {%- assign pub_venue_name = pub_doc.journal -%}
+  {%- assign pub_venue_key = 'journal' -%}
+{%- endif -%}
+{%- if pub_doc.booktitle -%}
+  {%- assign pub_venue_name = pub_doc.booktitle -%}
+  {%- assign pub_venue_key = 'booktitle' -%}
+{%- endif -%}
+{%- assign pub_abs_url = site.url | append: site.baseurl | append: pub_doc.url -%}
+{%- if pub_doc.paperurl -%}
+  {%- if pub_doc.paperurl contains '://' -%}
+    {%- assign pub_pdf_url = pub_doc.paperurl -%}
+  {%- else -%}
+    {%- assign pub_pdf_url = site.url | append: site.baseurl | append: pub_doc.paperurl -%}
+  {%- endif -%}
+{%- endif -%}

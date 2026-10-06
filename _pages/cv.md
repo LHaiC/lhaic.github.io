@@ -15,7 +15,7 @@ redirect_from:
 
 <article class="cv-document">
   <header class="cv-heading">
-    <h1>Haichuan Liu <span>刘海川</span></h1>
+    <h1>{{ site.author.name }}{% if site.author.name_zh %} <span>{{ site.author.name_zh }}</span>{% endif %}</h1>
     <p class="cv-subtitle">Curriculum Vitae</p>
     <p class="cv-contact">
       <a href="mailto:{{ site.author.personal_email }}">{{ site.author.personal_email }}</a>
