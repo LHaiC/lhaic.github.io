@@ -324,3 +324,38 @@ html[data-theme="dark"] .lhc-wordmark__accent {
 html[data-theme="dark"] .lhc-wordmark__dot {
   fill: #E0B56F;
 }
+
+/* One-shot "ink in" entrance on page load: strokes draw themselves left to
+   right, then the i-dot drops in. Ends exactly on the static original. */
+@media (prefers-reduced-motion: no-preference) {
+  .lhc-wordmark g > path,
+  .lhc-wordmark g > circle {
+    animation: lhc-ink-draw 0.82s cubic-bezier(0.3, 0.05, 0.25, 1) backwards;
+  }
+
+  .lhc-wordmark g > :nth-child(1) { animation-delay: 0s; }
+  .lhc-wordmark g > :nth-child(2) { animation-delay: 0.14s; }
+  .lhc-wordmark g > :nth-child(3) { animation-delay: 0.32s; }
+  .lhc-wordmark g > :nth-child(4) { animation-delay: 0.51s; }
+  .lhc-wordmark g > :nth-child(5) { animation-delay: 0.65s; }
+  .lhc-wordmark g > :nth-child(6) { animation-delay: 0.81s; }
+
+  .lhc-wordmark__dot {
+    transform-box: view-box;
+    transform-origin: 588px 145px;
+    animation: lhc-dot-drop 0.51s ease-out 1.35s backwards;
+  }
+}
+
+@keyframes lhc-ink-draw {
+  0%    { stroke-dasharray: 1 1; stroke-dashoffset: 1; opacity: 0; }
+  4.5%  { stroke-dashoffset: 0.97; opacity: 1; }
+  100%  { stroke-dashoffset: 0; }
+}
+
+@keyframes lhc-dot-drop {
+  0%   { transform: translateY(-28px) rotate(-18deg); opacity: 0; }
+  63%  { transform: translateY(3px) rotate(4deg); opacity: 1; }
+  82%  { transform: translateY(-2px) rotate(-2deg); opacity: 1; }
+  100% { transform: translateY(0) rotate(0); opacity: 1; }
+}
