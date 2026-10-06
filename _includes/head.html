@@ -18,7 +18,15 @@
 
 <script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
-</script>
+  // The wordmark ink-draw entrance plays only once per session.
+{% if page.url == '/' %}  try {
+    if (sessionStorage.getItem('lhc-ink-played')) {
+      document.documentElement.classList.add('lhc-ink-done');
+    } else {
+      sessionStorage.setItem('lhc-ink-played', '1');
+    }
+  } catch (e) {}
+{% endif %}</script>
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="{{ base_path }}/assets/css/main.css?v={{ asset_version | uri_escape }}">

@@ -325,25 +325,29 @@ html[data-theme="dark"] .lhc-wordmark__dot {
   fill: #E0B56F;
 }
 
-/* One-shot "ink in" entrance on page load: strokes draw themselves left to
-   right, then the i-dot drops in. Ends exactly on the static original. */
+/* One-shot "ink in" entrance: strokes draw themselves left to right once the
+   page has settled, then the i-dot drops in. Plays only on the first homepage
+   view of a session (html.lhc-ink-done is set from sessionStorage in head.html);
+   ends exactly on the static original. */
 @media (prefers-reduced-motion: no-preference) {
-  .lhc-wordmark g > path,
-  .lhc-wordmark g > circle {
-    animation: lhc-ink-draw 0.82s cubic-bezier(0.3, 0.05, 0.25, 1) backwards;
-  }
+  html:not(.lhc-ink-done) {
+    .lhc-wordmark g > path,
+    .lhc-wordmark g > circle {
+      animation: lhc-ink-draw 1s cubic-bezier(0.3, 0.05, 0.25, 1) backwards;
+    }
 
-  .lhc-wordmark g > :nth-child(1) { animation-delay: 0s; }
-  .lhc-wordmark g > :nth-child(2) { animation-delay: 0.14s; }
-  .lhc-wordmark g > :nth-child(3) { animation-delay: 0.32s; }
-  .lhc-wordmark g > :nth-child(4) { animation-delay: 0.51s; }
-  .lhc-wordmark g > :nth-child(5) { animation-delay: 0.65s; }
-  .lhc-wordmark g > :nth-child(6) { animation-delay: 0.81s; }
+    .lhc-wordmark g > :nth-child(1) { animation-delay: 0.5s; }
+    .lhc-wordmark g > :nth-child(2) { animation-delay: 0.68s; }
+    .lhc-wordmark g > :nth-child(3) { animation-delay: 0.9s; }
+    .lhc-wordmark g > :nth-child(4) { animation-delay: 1.12s; }
+    .lhc-wordmark g > :nth-child(5) { animation-delay: 1.3s; }
+    .lhc-wordmark g > :nth-child(6) { animation-delay: 1.48s; }
 
-  .lhc-wordmark__dot {
-    transform-box: view-box;
-    transform-origin: 588px 145px;
-    animation: lhc-dot-drop 0.51s ease-out 1.35s backwards;
+    .lhc-wordmark__dot {
+      transform-box: view-box;
+      transform-origin: 588px 145px;
+      animation: lhc-dot-drop 0.51s ease-out 2.05s backwards;
+    }
   }
 }
 
