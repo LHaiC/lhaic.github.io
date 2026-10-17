@@ -9,6 +9,7 @@ venue: 'IEEE/ACM International Conference on Computer-Aided Design (ICCAD), Muni
 venue_short: "ICCAD'25"
 venue_url: 'https://2025.iccad.com/'
 authors: "Haichuan Liu†, Zizheng Guo†, Runsheng Wang and Yibo Lin*"
+doi: '10.1109/ICCAD66269.2025.11240636'
 paperurl: '/files/ICCAD2025_IncreGPUSTA.pdf'
 ---
 

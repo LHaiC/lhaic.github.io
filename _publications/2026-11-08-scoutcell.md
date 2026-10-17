@@ -9,6 +9,7 @@ venue: 'IEEE/ACM International Conference on Computer-Aided Design (ICCAD), San 
 venue_short: "ICCAD'26"
 venue_url: 'https://iccad.com/2026'
 authors: "Kairong Guo, Haoyi Zhang, Haichuan Liu, Chunyuan Zhao and Yibo Lin*"
+doi: '10.1145/3831252.3834054'
 paperurl: '/files/ICCAD2026_ScoutCell.pdf'
 ---
 

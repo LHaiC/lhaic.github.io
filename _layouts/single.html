@@ -82,6 +82,11 @@ layout: default
                 {%- capture bib_dl -%}{% include bibtex-entry.html doc=page %}{%- endcapture -%}
                 <a href="data:text/plain;charset=utf-8,{{ bib_dl | strip | replace: '%', '%25' | uri_escape }}" download="{{ pub_key }}.bib">BibTeX</a>
               {% endif %}
+
+              {% if page.doi %}
+                {% if link_shown %} | {% endif %}
+                <a href="https://doi.org/{{ page.doi }}">DOI</a>
+              {% endif %}
             </p>
           {% endif %}
 

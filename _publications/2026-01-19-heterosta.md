@@ -9,6 +9,7 @@ venue: 'IEEE/ACM Asia and South Pacific Design Automation Conference (ASPDAC), H
 venue_short: "ASPDAC'26"
 venue_url: 'https://www.aspdac.com/aspdac2026/index.html'
 authors: "Zizheng Guo, Haichuan Liu, Xizhe Shi, Shenglu Hua, Zuodong Zhang, Chunyuan Zhao, Runsheng Wang and Yibo Lin*"
+doi: '10.1109/ASP-DAC66049.2026.11420338'
 arxiv: '2511.11660'
 paperurl: 'https://arxiv.org/pdf/2511.11660v1'
 ---
