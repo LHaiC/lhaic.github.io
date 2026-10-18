@@ -1,6 +1,6 @@
 # Haichuan Liu's Personal Website
 
-Source of [www.haichuanliu.top](https://www.haichuanliu.top) — Haichuan Liu's
+Source of [lhaic.top](https://lhaic.top) — Haichuan Liu's
 personal academic homepage, built with Jekyll on top of the
 [Academic Pages](https://github.com/academicpages/academicpages.github.io)
 template and deployed automatically via GitHub Pages.

@@ -13,7 +13,7 @@ title                    : "Haichuan Liu"
 title_separator          : "-"
 name                     : &name "Haichuan Liu"
 description              : &description "Haichuan Liu's personal academic homepage."
-url                      : https://www.haichuanliu.top # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
+url                      : https://lhaic.top # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "lhaic/lhaic.github.io"
 asset_version            : "20261006-search"
@@ -136,12 +136,12 @@ social:
 
 # Analytics
 analytics:
-  provider               :  "google-analytics" # false (default), "google", "google-universal", "google-analytics-4", "custom"
+  provider               :  "google-analytics-4" # false (default), "google", "google-universal", "google-analytics-4", "custom"
   google:
     tracking_id          : G-6VFLCJTJ3J
 
 visitor_badge:
-  page_id                : haichuanliu.top
+  page_id                : lhaic.top
   left_text              : visitors
 
 

@@ -8,7 +8,7 @@ This is **Haichuan Liu's personal academic website**, built with **Jekyll** on t
 [Academic Pages](https://github.com/academicpages/academicpages.github.io) template
 (a fork of the Minimal Mistakes theme). It is a static site with no server-side application
 code. It deploys automatically via **GitHub Pages** from the `lhaic/lhaic.github.io`
-repository to <https://www.haichuanliu.top> (custom domain set in `CNAME`).
+repository to <https://lhaic.top> (custom domain set in `CNAME`).
 
 The site contains: an about/home page, a publications list, an Activities (news & awards) blog
 archive, and a CV page. All other stock template surfaces (talks, teaching, portfolio,
