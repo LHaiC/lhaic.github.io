@@ -6,19 +6,20 @@
 {% endif %}
 {% assign seo_url = seo_url | default: site.github.url %}
 
-{% if page.title %}
-  {% assign seo_title = page.title | append: " " | append: site.title_separator | append: " " | append: site.title %}
-{% endif %}
-
-{% if seo_title %}
-  {% assign seo_title = seo_title | markdownify | strip_html | strip_newlines | escape_once %}
+{% if page.url == "/" %}
+  {% assign seo_page_title = site.title %}
+  {% assign seo_title = site.title %}
+{% elsif page.title %}
+  {% assign seo_page_title = page.title %}
+  {% assign _seo_page_title = page.title | markdownify | strip_html | strip_newlines | strip %}
+  {% assign seo_title = _seo_page_title | append: " " | append: site.title_separator | append: " " | append: site.title %}
 {% endif %}
 
 {% if site.url %}
   {% assign canonical_url = page.url | replace: "index.html", "" | prepend: site.url %}
 {% endif %}
 
-<title>{{ seo_title | default: site.title }}{% if paginator %}{% unless paginator.page == 1 %} {{ site.title_separator }} {{ site.data.ui-text[site.locale].page | default: "Page" }} {{ paginator.page }}{% endunless %}{% endif %}</title>
+<title>{{ seo_title | default: site.title | escape_once }}{% if paginator %}{% unless paginator.page == 1 %} {{ site.title_separator }} {{ site.data.ui-text[site.locale].page | default: "Page" }} {{ paginator.page }}{% endunless %}{% endif %}</title>
 
 {% assign seo_description = page.description | default: page.excerpt %}
 {% if page.collection == 'publications' %}
@@ -53,7 +54,7 @@
 
 {% if site.twitter.username %}
   <meta name="twitter:site" content="@{{ site.twitter.username | replace: "@", "" }}">
-  <meta name="twitter:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
+  <meta name="twitter:title" content="{{ seo_page_title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
   <meta name="twitter:description" content="{{ seo_description }}">
   <meta name="twitter:url" content="{{ canonical_url }}">
 
@@ -106,7 +107,7 @@
 <!-- Open Graph protocol data (https://ogp.me/), used by social media -->
 <meta property="og:locale" content="{{ site.locale | default: "en" }}">
 <meta property="og:site_name" content="{{ site.title }}"> 
-<meta property="og:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
+<meta property="og:title" content="{{ seo_page_title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
 {% if page.date %}
   <meta property="og:type" content="article">
 {% else %}
