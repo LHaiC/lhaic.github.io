@@ -168,8 +168,21 @@
   }
 
   .cv-actions {
-    padding: 0.75rem;
-    margin: 0;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .cv-heading {
+    margin-bottom: 1.1rem;
+  }
+
+  .cv-heading h1 {
+    font-size: 1.7rem;
+  }
+
+  .cv-heading h1 span {
+    display: block;
+    margin: 0.15rem 0 0;
   }
 
   .cv-document {
